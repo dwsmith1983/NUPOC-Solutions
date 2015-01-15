@@ -1,0 +1,34 @@
+\documentclass[tikz, convert = false]{standalone}
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+
+\begin{document}
+\begin{tikzpicture}
+  \coordinate (O) at (0, 0);
+
+  \draw (O) -- +(-3, 0);
+  \draw[-latex] (O) -- +(3, 0) node[right, font = \scriptsize] {$x$};
+  \draw[-latex] (O) -- +(0, 3) node[above, font = \scriptsize] {$y$};
+  \draw (O) -- +(0, -3);
+
+  \draw (1.75, -2) -- (1.75, 2) -- (-1.75, 2) -- (-1.75, -2) -- cycle;
+
+  \node[font = \scriptsize, right] at (1.75, -0.2) {$\frac{\ell}{2}$};
+  \node[font = \scriptsize, left] at (-1.75, -0.2) {$-\frac{\ell}{2}$};
+  \node[font = \scriptsize, above] at (-0.2, 2) {$\frac{w}{2}$};
+  \node[font = \scriptsize, below] at (-0.3, -2) {$-\frac{w}{2}$};
+\end{tikzpicture} 
+\end{document}

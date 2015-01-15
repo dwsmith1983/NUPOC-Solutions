@@ -1,0 +1,227 @@
+%  Solutions to the wave section of NUPOC study guide
+\subsection{Wave Properties and Oscillations}
+
+\begin{enumerate}
+\item
+  What is the oscillation period of a simple harmonic oscillator?
+  \par\smallskip
+  A simple harmonic oscillator can be defined as a mass on a spring.
+  Then by Hooke's law and Newton's second law, we have
+  \[
+  m\ddot{x} = -kx.
+  \]
+  The solution to the following ODE is
+  \(x(t) = A\cos(\omega t) + B\sin(\omega t)\) where
+  \(\omega = \sqrt{\frac{k}{m}}\).
+  Let \(t\) be the period of the oscillations.
+  Then
+  \[
+  \omega t = 2\pi\Rightarrow t = \frac{2\pi}{\omega}
+  \]
+  so \(t = 2\pi\sqrt{\frac{m}{k}}\).
+\item
+  Derive the period of a simple pendulum?
+  \begin{figure}[H]
+    \centering
+    \includestandalone[height = 1.25in, mode = image]{NUPOCphysicswaves2}
+    \caption{A simple pendulum with a small angle approximation.}
+    \label{NUPOCphysicswaves2}
+  \end{figure}
+  For this problem, we will assume there is no air resistance and a small angle
+  approximation which will become apparent later.
+  From the \cref{NUPOCphysicswaves2}, we see that \(x = \ell\sin(\theta)\) and
+  \(y = \ell(1 - \cos(\theta))\).
+  We can use Newton's second law for both the x and y motion.
+  \begin{align*}
+    m\ddot{x} &= F_x\\
+              &= -T\sin(\theta)\\
+    m\ddot{y} &= F_y\\
+              &= T\cos(\theta) - mg
+  \end{align*}
+  Now we need to find \(\ddot{x}\) and \(\ddot{y}\).
+  \begin{align*}
+    \dot{x} &= \ell\dot{\theta}\cos(\theta)\\
+    \ddot{x} &= \ell\ddot{\theta}\cos(\theta) -
+                \ell\dot{\theta}^2\sin(\theta)\\
+    \dot{y} &= \ell\dot{\theta}\sin(\theta)\\
+    \ddot{y} &= \ell\ddot{\theta}\sin(\theta) + \ell\dot{\theta}^2\cos(\theta)
+  \end{align*}
+  We can now construct our equations of motion.
+  \begin{align}
+    m\ell(\ddot{\theta}\cos(\theta) - \dot{\theta}^2\sin(\theta))
+    &= -T\sin(\theta)\label{simpenx}\\
+    m\ell(\ddot{\theta}\sin(\theta) + \dot{\theta}^2\cos(\theta))
+    &= T\cos(\theta) - mg\label{simpeny}\\
+    \intertext{We can now multiple \cref{simpenx} by cosin, \cref{simpeny}
+    by sine, and then add \cref{simpenx,simpeny} together.}
+    \ddot{\theta} + \frac{g}{\ell}\sin(\theta) &= 0\label{simpen}
+  \end{align}
+  \Cref{simpen} is a nonlinear equation.
+  Since we are assuming small angle approximations, \(\theta\ll 1\), let's
+  look at the power series for sine.
+  \[
+  \sin(x) = \sum_{n = 1}^{\infty}\frac{(-1)^{n - 1}x^{2n - 1}}{(2n - 1)!}
+  = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots
+  \]
+  Therefore, \(\sin(\theta)\approx\theta\) and \cref{simpen} is
+  \[
+  \ddot{\theta} + \frac{g}{\ell}\theta = 0.
+  \]
+  The solution to ordinary differential equation is
+  \(\Theta(t) = A\cos(\omega t) + B\sin(\omega t)\) where
+  \(\omega = \sqrt{\frac{g}{\ell}}\).
+  Then the period is \(\omega t = 2\pi\) so \(t = 2\pi\sqrt{\frac{\ell}{g}}\).
+\item
+  Explain the difference between light and radio waves.
+  \par\smallskip
+  The main difference is waves length.
+  Radio waves start around \(1 \ cm\) whereas visible light is between
+  \(380 \ nm\) and \(740 \ nm\).
+  Additionally, radio waves are created by the acceleration of electrons in
+  radio antenna, and light waves are created by the oscillation of the
+  electrons within the atoms.
+\item
+  \label{w4}
+  What is the relationship between frequency and wavelenght?
+  \par\smallskip
+  Frequency is \(f = \frac{1}{t}\) where \(t\) is the period, and the wave
+  length \(\lambda\) is defined as \(\lambda = \frac{c}{f}\) and \(c\) is the
+  speed of light.
+\item
+  What is the frequency of a \(5\) \AA{} wavelength emission?
+  \par\smallskip
+  Since \(5\) \AA{} is a wavelength, we know from \cref{w4} that
+  \(5 \AA = \frac{c}{f}\).
+  \[
+  f = \frac{c}{5\text{\AA}} = \frac{3\times 10^8 \ m/s}{5\times 10^{-10} \ m}
+  = \frac{3}{500s}
+  \]
+  Therefore, the frequency is \(\frac{3}{500} \ Hz\).
+\item
+  Contrast light and sound waves.
+  How do they propagate energy?
+  Do they travel at different speeds in different media?
+  Why?
+  \par\smallskip
+  Sound requires a meduim to propage.
+  Progation occurs from vibration which produces a mechanical wave of pressure
+  and displacement through the medium.
+  Light doesn't require a medium.
+  Propation occurs from the vibration of an electric charge.
+  Additionally, light travels exremely fast, \(c = 3\times 10^8 \ m/s\).
+  Light waves are electromagnetic waves consisting of varying electric and
+  magnetic fields.
+  Yes, when waves (sound or light) enter a medium, they may slow down or speed
+  up.
+\item
+  Define Doppler Shift.
+  \par\smallskip
+  The Doppler Shift is a change in frequency due to the Doppler Effect.
+  Therefore, we need to understand what the Doppler Effect is.
+  The Doppler Effect is an increase (or decrease) in the frequency of sound,
+  light, or other waves as the source and the observer move toward (or away
+  from) each other.
+  The effect causes the sudden change in pitch noticeable in a passing siren,
+  as well as the redshift seen by astromers.
+\item
+  Arrange the following electro-magnetic radiation in order of increasing
+  frequency: X-rays, gamma rays, infrared radiation, and visible light.
+  \par\smallskip
+  Correct order is: gamma rays, X-rays, visible light, and infrared radiation
+\item
+  State Snell's Law.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[height = 2.5in, mode = image]{NUPOCphysicswaves9}
+    \caption{A ray refracted through a medium.}
+  \end{figure}
+  Let \(n_1\) be the first medium and \(n_2\) be the second medium.
+  Let \(v_1 = \frac{c}{n_1}\) and \(v_2 = \frac{c}{n_2}\) where \(v_i\) is the
+  speed of light in the ith medium.
+  Then \(n_1\), \(n_2\geq 1\).
+  The time taken to move from \(P\) to \(Q\) is
+  \[
+  T = \frac{d_1}{v_1} + \frac{d_2}{v_2}.
+  \]
+  By the distance formula, \(d_1 = \sqrt{A^2 + x^2}\) and
+  \(d_2 = \sqrt{B^2 + (\ell - x)^2}\).
+  Thus,
+  \[
+  T = \frac{\sqrt{A^2 + x^2}}{v_1} + \frac{\sqrt{B^2 + (\ell - x)^2}}{v_2}.
+  \]
+  Next, let's minimize the transient time; that is, we need to set
+  \(\frac{dT}{dx} = 0\).
+  \[
+  \frac{dT}{dx} = \frac{x}{v_1\sqrt{A^2 + x^2}} -
+  \frac{\ell - x}{v_2\sqrt{B^2 + (\ell - x)^2}} = 0
+  \]
+  Then \(\sin(\theta_1) = \frac{x}{\sqrt{A^2 + x^2}}\) and
+  \(\sin(\theta_2) = \frac{\ell - x}{\sqrt{B^2 + (\ell - x)^2}}\).
+  \begin{gather*}
+    \frac{dT}{dx} = \frac{\sin(\theta_1)}{v_1} - \frac{\sin(\theta_2)}{v_2}
+    = 0\\
+    \Rightarrow\frac{\sin(\theta_1)}{v_1} = \frac{\sin(\theta_2)}{v_2}\\
+    \Rightarrow\frac{\sin(\theta_1)}{\sin(\theta_2)} = \frac{n_2}{n_1}
+    \eqnumtag\label{snell}
+  \end{gather*}
+  where \cref{snell} is Snell's law.
+\item
+  Draw a picture of a fish in water and show where you would throw a spear to
+  hit it.
+  Where does the fish appear?
+  Why?
+  How do \(n\) and \(C\) relate to refraction?
+  \begin{figure}[H]
+    \centering
+    \includestandalone[height = 2in, mode = image]{NUPOCphysicswaves10}
+    \caption{A fish under water.}
+  \end{figure}
+  Let line \(PO\) where \(O\) is the origin be the line of site.
+  Then \(Q\) is where the fish actually is and the red dashed line is where the
+  fish would appear to be.
+  Therefore, we will want to throw the spear along the solid black line.
+  This occurs because we are going from the medium of air into water.
+  The speed of light through the medium is \(v = \frac{c}{n}\) where \(n\) is
+  the index of refraction.
+  Thus, \(n = \frac{c}{v}\) where \(c\) is the speed of light.
+\item
+  Draw a concave and convex lens.
+  What effect would each have on paraxial rays?
+  Why?
+  \begin{figure}[H]
+    \centering
+    \subcaptionbox{Convex lens\label{convex}}{
+      \includestandalone[height = 2in, mode = image]{NUPOCphysicswaves11}}
+    \qquad
+    \subcaptionbox{Concave lens\label{concave}}{
+      \includestandalone[height = 2in, mode = image]{NUPOCphysicswaves11b}}
+    \caption{Paraxial rays moving through convex and concave lenses.}
+  \end{figure}
+  With a convex lens, the paraxial rays would be refracted towards the focus
+  on the opposing side, see \cref{convex}.
+  For the concave lencs, the paraxial rays would refracted along the angle of
+  incoming sides focus, see \cref{concave}.
+  This occurs because of Fermat's principle or the principle of least time.
+  Fermat's principle says that the path taken between two points by a ray of
+  light is the path that can be traversed in the least time.
+  Snell's law is the solution to Fermat's principle.
+  Therefore, concave and convex lenses do what they do based on the geometry
+  of their lens grind, in conjuction with Snell's law.
+\item
+  What does a diffraction grating do, and what is it used for?
+  Are there circumstances under which light must be considered a particle?
+  When?
+  \par\smallskip
+  Diffraction grating separates light of different wave lengths.
+  Think of a prism.
+  Diffraction gratings are used in monochromators, spectrometers, and lasers to
+  name a few.
+  Ligth should be considered a particle in the photoelectric effect.
+  More can be read on this topic here
+  \url{http://en.wikipedia.org/wiki/Photoelectric_effect}
+\end{enumerate}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

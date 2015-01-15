@@ -1,0 +1,36 @@
+\documentclass[tikz, convert = false]{standalone}
+\usepackage[utf8]{inputenx}% http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss // http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm} % http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}% http://ctan.org/pkg/fontenc
+\usepackage{textcomp}% http://ctan.org/pkg/textcomp
+\usetikzlibrary{calc}
+\usetikzlibrary{backgrounds}
+\begin{document}
+\begin{tikzpicture}
+\coordinate (O) at (0, 0) node[font = \scriptsize, below] at (-0.025, 0) {$O$};
+\coordinate (P1) at (3, 2) node[font = \scriptsize, above] at (3, 2) {$P1$};
+\coordinate (P2) at (4, 0) node[font = \scriptsize, above] at (4.075, 0)
+{$P2$};
+\draw (O) -- (5, 0);
+\draw (O) -- (0, 3.5);
+\begin{scope}[on background layer]
+\draw[dashed, gray] (P1) -- +(0, -2) node[below, font = \scriptsize,
+color = black] {$x_1$};
+\draw[dashed, gray] (P1) -- +(-3, 0) node[left, font = \scriptsize,
+color = black] {$y_1$};
+\end{scope}
+\node[below, font = \scriptsize] at (P2) {$x_2$};
+\draw[red, line cap = round] (O) -- (P1) -- (P2) -- cycle;
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

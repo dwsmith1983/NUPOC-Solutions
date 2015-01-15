@@ -1,0 +1,814 @@
+%  Solutions to the physics section of NUPOC study guide
+\section{Physics}
+
+\begin{enumerate}
+\item
+  What must the angle \(\theta\) be in order for the block of mass \(M\) to
+  start sliding when \(\mu = 0.8\)?
+  \begin{figure}[H]
+    \centering
+    \subcaptionbox{What is giving}{
+      \includestandalone[mode = image, width = 2in]{NUPOCphysics1}}
+    \qquad
+    \subcaptionbox{Forces drawn\label{solforce}}{
+      \includestandalone[mode = image, width = 2in]{NUPOCphysics1sol}}
+    \caption{The picture of the problem statement and forces drawn to help solve
+      the problem.}
+  \end{figure}
+  Let \(\mathbf{N}\) be the normal force, \(\mathbf{F}_f = \mathbf{N}\mu\) be the
+  frictional force, and \(M\mathbf{g}\) be the weight of the block.
+  We will define our coordinate system such that positive x is in the direction
+  the box will move once it over comes friction, and positive y in the direction
+  of \(\mathbf{N}\).
+  What we need to know now is \(\mathbf{F}_1\) and \(\mathbf{F}_2\).
+  From the \cref{solforce}, we see that \(\mathbf{F}_1\) is parallel to line
+  between \(M\mathbf{g}\) and \(\mathbf{F}_2\).
+  From geometry, we can determine that the angle between \(M\mathbf{g}\) and
+  \(\mathbf{F}_2\) is also \(\theta\).
+  First, let's consider the \(90^{\circ}\) angle formed by \(\mathbf{F}_2\)
+  and the ramp.
+  From the red line to the ramp, we have a \(\theta\); therefore, the angle
+  between the red line and \(\mathbf{F}_2\) is \(90 - \theta\).
+  Additionally, we have that the angle between the red line and \(M\mathbf{g}\)
+  is also \(90\).
+  Let \(\psi\) be the angle between \(M\mathbf{g}\) and \(\mathbf{F}_2\).
+  Then \(\psi + 90 - \theta = 90\).
+  Thus, \(\psi = \theta\) as was needed to be shown.
+  By determining the force from \(\mathbf{F}_2\) to \(M\mathbf{g}\), we have
+  the force \(\mathbf{F}_1\) since \(\psi = \theta\).
+  From the properties of a right triangle, we have that
+  \begin{align*}
+    \mathbf{F}_2 &= M\mathbf{g}\cos(\theta)\\
+    \mathbf{F}_1 &= M\mathbf{g}\sin(\theta)
+  \end{align*}
+  By Newton's second law, \(\sum\mathbf{F} = m\mathbf{a}\), we have that
+  \begin{subequations}
+    \begin{align}
+      Mg\sin(\theta) - N\mu &= M\ddot{x}\\
+      N - Mg\cos(\theta) &= M\ddot{y}
+    \end{align}
+    \label{newton1}
+  \end{subequations}
+  Let's assume there is no acceleration.
+  Then our \cref{newton1} can be written as
+  \begin{subequations}
+    \begin{align*}
+      Mg\sin(\theta) &= N\mu\eqnumtag\label{xnoa}\\
+      N &= Mg\cos(\theta)\eqnumtag\label{ynoa}\\
+      \intertext{When we combine \cref{xnoa,ynoa}, we obtain the following
+      expression.}
+      \tan(\theta) &= \mu\\
+      \tan(\theta) &= 0.8
+    \end{align*}
+  \end{subequations}
+  Therefore, \(\theta > \arctan(0.8)\approx 38.6598^{\circ}\).
+\item
+  Find the final velocity of \(M\) for both elastic collision and inelastic
+  collision.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCphysics2}
+    \caption{A ball of mass \(M\) with speed \(V_0\) collides with a ball of
+      mass \(m\) and speed of \(v_0 = 0\).}
+  \end{figure}
+  For elastic collision, we have that the Conservation of Kinetic Energy and
+  the Conservation of Momentum hold.
+  \begin{alignat*}{2}
+    \text{CoKE} &: \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2 && ={}
+    \frac{1}{2}m_1v_{1f}^2 + \frac{1}{2}m_2v_{2f}^2\\
+    \text{CoM} &: m_1v_1 + m_2v_2 && ={} m_1v_{1f} + m_2v_{2f}
+  \end{alignat*}
+  Let's apply these definitions to our problem now.
+  \begin{align*}
+    MV_0^2 &= MV_{0f}^2 + mv_{0f}^2\\
+    M(V_0^2 - V_{0f}^2) &= mv_{0f}^2\eqnumtag\label{coke2}\\
+    \intertext{Recall that \(V_0^2 - V_{0f}^2 = (V_0 - V_{0f})(V_0 + V_{0f})\).}
+    MV_0 &= MV_{0f} + mv_{0f}\\
+    M(V_0 - V_{0f}) &= mv_{0f}\eqnumtag\label{com2}
+  \end{align*}
+  Let's divide \cref{coke2} by \cref{com2}.
+  \[
+  \frac{V_0^2 - V_{0f}^2}{V_0 - V_{0f}} = v_{0f}\Rightarrow
+  V_0 + V_{0f} = v_{0f}
+  \]
+  Therefore, the velocity of \(M\) after collision is \(V_{0f} = v_{0f} - V_0\).
+  For inelastic collision, the Conservation of Kinetic Energy doesn't hold.
+  In an inelastic collision, the objects stick together after impact.
+  Therefore, when we use the CoM equation, the mass of the final state will be
+  \(m + M\).
+  \[
+  MV_0 = (M + m)V_{0f}\Rightarrow V_{0f} = \frac{MV_0}{M + m}
+  \]
+\item
+  Describe the motion of the block-spring assembly when the block is displaced
+  \(4\) inches from the equilibrium position.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, height = 1.5in]{NUPOCphysics3}
+    \caption{A block of mass \(M\) connected be a spring with spring constant
+      \(k\).}
+  \end{figure}
+  In the x direction, we will have no movement; thus, the only direction of
+  movement is in the y direction.
+  In the y direction, according to Newton's second law, we have a simple harmonic
+  oscillator.
+  \[
+  -ky = m\ddot{y}\Rightarrow y(t) = A\cos(\omega t) + B\sin(\omega t)
+  \]
+  where \(\omega = \sqrt{\frac{k}{m}}\).
+  Prior to the block being released, the velocity is \(0\); that is,
+  \(\dot{y}(0) = 0\).
+  Since the block is displaced \(4\) inches, our initial condition for
+  displacement is \(y(0) = -4\).
+  Using the initial conditions, we have the following
+  \begin{alignat*}{2}
+    \dot{y}(0) &= B\omega && = {} 0\\
+    y(0) &= A && = {} -4
+  \end{alignat*}
+  Therefore, the equation is \(y(t) = -4\cos(\omega t)\).
+  When the block is displaced, it will oscillate with period
+  \[
+  \omega t = 2\pi\Rightarrow t = \frac{2\pi}{\omega} = 2\pi\sqrt{\frac{m}{k}}.
+  \]
+\item
+  How does the gravitational force vary between two masses if distance is 
+  doubled?
+  How does electrostatic force vary between two charged particles if the
+  distance is doubled?
+  Explain using both equations and physical applications.
+  \par\smallskip
+  The gravitational force between two objects is
+  \[
+  F_g = \frac{Gm_1m_2}{r^2}.
+  \]
+  Let's determine what happens when we double the distance.
+  Let \(r = 2r\).
+  Then the denominator is \(4r^2\).
+  By doubling the distance between the masses, the force decreases by \(4\).
+  Since the electrostatic force between two charged particles is
+  \[
+  F_e = \frac{k\lvert q_1q_2\rvert}{d^2},
+  \]
+  doubling the distance will still decrease the force by \(4\).
+\item
+  Given the \cref{NUPOCphysics5}, calculate the distance traveled by the ball
+  being thrown off the monument.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 1.5in]{NUPOCphysics5}
+    \caption{A ball being thrown from a monument.}
+    \label{NUPOCphysics5}
+  \end{figure}
+  For this problem, we will assume that there is no acceleration in the x
+  direction, no air resistance, and \(v_{y0} = 0\).
+  Let \((x_0, y_0) = (0, 0)\) and \(g = -9.8 \ m/s^2\). 
+  \begin{align*}
+    a_y(t) &= g\\
+    \int a_y(t) \ dt &= \int g \ dt\\
+    v_y(t) &= gt + v_{y0}\\
+    \int v_y(t) \ dt &= \int(gt + v_{y0}) \ dt\\
+    y(t) &= \frac{g}{2}t^2 + v_{y0}t + y_0
+  \end{align*}
+  By starting with acceleration in the y direction, we were able to integrate
+  to obtain the position function for y.
+  When \(y(t) = -555\) ft, we will have the time it takes for the ball to strike
+  the ground.
+  We need to convert feet to meters.
+  The conversion for is \(\frac{1600 \ m}{5280 \ ft}\), so when
+  \(y(t) = \frac{-1850}{111}\).
+  \[
+  y(t) = -4.9t_i^2 = \frac{-1850}{11}\Rightarrow t_i = 5.85857 \ s
+  \]
+  where \(t_i\) is the time of impact.
+  Since we have no acceleration in the x direction, we have
+  \begin{align*}
+    a_x(t) &= 0\\
+    v_x(t) &= v_{x0}\\
+           &= 50\\
+    x(t) &= 50t + x_0
+  \end{align*}
+  Let's convert \(50\) ft/sec to meters per sec.
+  \(\frac{50 * 1600 \ m}{5280} = \frac{500}{33}\) m/s.
+  \[
+  x(t) = \frac{500}{33}t
+  \]
+  Finally, we can determine the distance the ball traveled from \(x(t_i)\).
+  \[
+  x(5.85857) = 88.7662 \ m
+  \]
+\item
+  A spaceship is accelerating at \(1000 \ m/s^2\).
+  How much force is required from the backthrusters to completely stop the
+  spaceship?
+  \par\smallskip
+  Let \(M\) be the mass of the spaceship.
+  By Newton's second law, we have that \(F_s = 1000M \ Kg\cdot m/s^2\).
+  Therefore, the force required to stop the spaceship is
+  \(1000M \ Kg\cdot m/s^2\).
+  If spaceship was moving a some velocity, \(v_0\), it would take a force larger
+  than \(1000M \ Kg\cdot m/s^2\) to stop the spacecraft.
+\item
+  Find \(h\) such that the car will make it around the loop without falling.
+  Find the \(x\) that occurs when the car impacts the spring.
+  \begin{figure}[H]
+    \centering
+    \subcaptionbox{Prior to being released\label{notreleased}}{
+      \includestandalone[mode = image, height = .75in]{NUPOCphysics7}}
+    \quad
+    \subcaptionbox{At the apex of the loop.\label{apexloop}}{
+      \includestandalone[mode = image, width = 1in]{NUPOCphysics7loop}}
+    \caption{Cart moving through a loop from an inclined starting position.}
+  \end{figure}
+  When the cart is moving through the loop, we have centripetal acceleration;
+  that is, \(a = \frac{v^2}{r} = \ddot{y}\).
+  Now let's used Newton's second law.
+  \begin{align*}
+    M\ddot{y} &= N + Mg\\
+    \frac{Mv^2}{r} &= N + Mg
+  \end{align*}
+  What is the minimum speed that the cart must travel to not fall off?
+  The minimum speed occurs when \(N = 0\) so \(v^2 = gr\) which is also the
+  minimum kinetic energy since
+  \[
+  \frac{1}{2}Mv^2 = \frac{1}{2}Mgr.
+  \]
+  We can now use the Conservation of Energy.
+  The initial kinetic energy of the system is zero and the initial potential
+  energy is \(Mgh\).
+  \begin{align*}
+    Mgh_i &= Mgh_f + \frac{1}{2}Mv_f^2\\
+    Mgh &= 2Mgr + \frac{1}{2}Mgr\\
+    h = \frac{5}{2}r
+  \end{align*}
+  The cart will make it around the loop when \(h\geq\frac{5}{2}r\).
+  For the second part of the question, recall that the energy of a compressed
+  spring is \(\frac{1}{2}kx^2\).
+  Suppose the spring is located at \(h = 0\).
+  Then by the Conservation of Energy, we have
+  \[
+  Mgh = \frac{1}{2}kx^2.
+  \]
+  Since \(h\geq\frac{5}{2}r\), we have that \(x\geq\sqrt{\frac{5Mgr}{k}}\).
+\item
+  What angle will give the maximum range for a projectile neglecting air
+  resistance?
+  What would happen if air resistance occurred?
+  \begin{figure}[H]
+    \centering
+    \subcaptionbox{The flight path of a projectile.}{
+      \includestandalone[mode = image, width = 2.5in]{NUPOCphysics8}}
+    \qquad
+    \subcaptionbox{Components of the velocity vector.}{
+      \includestandalone[mode = image, height = 1in]{NUPOCphysics8v}}
+    \caption{Projectile motion}
+  \end{figure}
+  We will assume the only acceleration is in the \(y\) direction and it is
+  gravity, \(\mathbf{a} = -9.8 \ m/s^2\).
+  \begin{align*}
+    a_x &= 0\\
+    v_x &= \int 0 \ dt\\
+        &= v_{0x}\\
+    x(t) &= \int v_{0x} \ dt\\
+        &= v_{0x}t + x_0\eqnumtag\label{xeomp}\\
+    a_y &= -9.8\\
+    v_y &= -9.8\int dt\\
+        &= -9.8t + v_{0y}\\
+    y(t) &= -4.9t^2 + v_{0y}t + y_0\eqnumtag\label{yeomp}
+  \end{align*}
+  We now have our equations of motion, \cref{xeomp,yeomp}.
+  Let \((x_0, y_0) = (0, 0)\).
+  Then \cref{xeomp,yeomp} can be written as
+  \begin{align*}
+    x(t) &= v_{0x}t\\
+         &= v\cos(\theta)t\\
+    y(t) &= v\sin(\theta)t - 4.9t^2
+  \end{align*}
+  We need to determine the time it takes for \(y = 0\) or when the projectile
+  impacts the ground.
+  Distance is simply the rate times the time, \(d = r\cdot t\), where
+  \(r = v\cos(\theta)\) and
+  \[
+  0 = v\sin(\theta) - 4.9t^2\Rightarrow t = \frac{v\sin(\theta)}{4.9}.
+  \]
+  Thus, distance is now a function of the angle, \(d(\theta) = rt\).
+  To maximize the range, we need to find the maximum \(\theta\).
+  Let's take the derivative of \(d\) and set it equal to zero.
+  \begin{gather*}
+    d' = \frac{v^2}{4.9}(\cos^2(\theta) - \sin^2(\theta)) = 0\\
+    \tan(\theta) = 1
+  \end{gather*}
+  A projectile being fired only occurs when
+  \(\theta\in\big[0, \frac{\pi}{2}\big]\) since we can always change our
+  coordinates; therefore, \(\theta = \frac{\pi}{4}\).
+  If we consider air resistance, an angle less than \(\frac{\pi}{4}\) will
+  produce a maximum range.
+  This is due to the fact that a lower trajectory reduces the time and distance
+  over which the drag force due to air is acting.
+  This is the basic understanding, but this isn't entirely true.
+  An article, from 1997, by Dr.s Richard Price and Joseph Romano, has determined
+  that this isn't always the case.
+  The article can be found at
+  \url{http://www.physics.rutgers.edu/~zapolsky/381/aim.pdf}.
+  It goes on to say that drag is proportional the nth power of velocity,
+  \(\text{drag}\propto v^n\).
+  The critical value for \(n\) is \(n_{\text{crit}}\approx 3.5\).
+  For \(n > n_{\text{crit}}\), angles greater than \(\frac{\pi}{4}\) can
+  achieve a max range.
+\item
+  If a piece of paper is put on a full glass of water and inverted, what
+  happens?
+  Why?
+  \par\smallskip
+  By paper, I assume we mean something along the lines of an index card.
+  The water will stay in the cup.
+  This occurs because we have a higher air pressure pushing against the index
+  card on the bottom of the cup.
+  In the cup, there may be a small pocket of air, but it is of a lower air
+  pressure.
+  The force from atmospheric pressure holds the index card up, and the lower
+  pressure in the glass prevents the waters weight from pushing the card down.
+\item
+  Given a hollow and a solid cylinder of equal masses that are placed on an
+  inclined plane with both cylinders having equal radii.
+  Which cylinder will reach the bottom of the plane first?
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 2.5in]{NUPOCphysics10}
+    \caption{A cylinder rolling down and inclined plane.}
+  \end{figure}
+  The kinetic energy of the cylinder is the energy of the translational motion
+  plus the rotational energy.
+  \[
+  KE = \frac{1}{2}mv^2 + \frac{1}{2}I\omega^2
+  \]
+  where \(I\) is the moment of inertia and \(\omega\) is the angular velocity.
+  Recall that the relation between angular and translational velocity is
+  \(v = \omega\cdot R\).
+  Since a rotation through an angle \(\theta\) causes the cylinder to travel,
+  a distance is traveled which we refer to has arc length,
+  \(s = \theta\cdot R\).
+  Then \(\frac{ds}{dt} = v\) and \(\frac{d\theta}{dt} = \omega\).
+  Let's use the Conservation of Energy.
+  Initial we will have no kinetic energy; therefore, we have
+  \[
+  mgy(t) = \frac{1}{2}mv^2 + \frac{1}{2}\omega^2 =
+  \frac{v^2}{2}\Big(m + I\frac{1}{R^2}\Big).
+  \]
+  By solving for velocity, we have
+  \[
+  v^2 = \frac{2gy(t)}{1 + I\frac{1}{mR^2}}.
+  \]
+  The vertical velocity is \(\frac{dy}{dt}\) where \(y = s\sin(\alpha)\), and
+  the translational velocity is \(\frac{dy}{dt} = v\sin(\alpha)\).
+  Then
+  \[
+  \frac{dy}{dt} = \sqrt{\frac{2g}{1 + I\frac{1}{mR^2}}}\sqrt{y(t)}\sin(\alpha)
+  \]
+  where \(y(0) = 0\).
+  We know have a differential equation to solve.
+  \[
+  y(t) = \Bigg[\sqrt{\frac{2g}{1 + \frac{I}{mR^2}}}\frac{\sin(\alpha)t}{2}
+  + C\Bigg]^2
+  \]
+  At \(y(0)\), \(C = 0\).
+  \[
+  y(t) = \frac{g\sin^2(\alpha)t^2}{2\big(1 + \frac{I}{mR^2}\big)}
+  \]
+  Suppose the height of the cylinder is \(h\).
+  Then the time required to roll down the incline plane is
+  \[
+  t = \frac{\sqrt{2\big(1 + \frac{I}{mr^2}\big)}}{\sqrt{g}\sin(\alpha)}.
+  \]
+  Then the cylinder with the smallest \(\frac{I}{mR^2}\) reach the bottom
+  first.
+  Let's assume the the cylinder has constant density, the cylinder as length
+  or height \(\ell\) if it is set on, and the cylinder has radius \(R\).
+  Since the cylinder has constant density, \(\rho = 1\).
+  We can calculate the moment inertia by
+  \[
+  I = \iiint_Dr^2 \ dm.
+  \]
+  Since \(\rho = \frac{m}{V}\), \(dm = \rho \ dV\).
+  \begin{align*}
+    I_s &= \int_0^h\int_0^{2\pi}\int_0^Rr^2r \ drd\theta dx\\
+        &= \frac{R^4\pi h}{2}\\
+    \intertext{We now need to know the mass of the solid cylinder.}
+    m_s &= \int_0^h\int_0^{2\pi}\int_0^Rr \ drd\theta dx\\
+        &= R^2\pi h
+  \end{align*}
+  Then
+  \[
+  \frac{I_s}{m_sr^2} = \frac{R^4\pi h}{2R^2\pi h R^2} = \frac{1}{2}.
+  \]
+  For the hollow cylinder, let the inner radius be \(a\) where \(0 < a < R\).
+  \begin{align*}
+    I_h &= \int_0^h\int_0^{2\pi}\int_a^Rr^2r \ drd\theta dx\\
+        &= \frac{\pi h}{2}(R^4 - a^4)\\
+    m_h &= \int_0^h\int_0^{2\pi}\int_0^Rr \ drd\theta dx\\
+        &= \pi h(R^2 - a^2)
+  \end{align*}
+  Then
+  \[
+  \frac{I_h}{m_hr^2} = \frac{(R^4 - a^4)\pi h}{2R^2(R^2 - a^2)\pi h} = \frac{1}{2}\Big(1 + \Big(\frac{a}{r^2}\Big)^2\Big).
+  \]
+  Since \(a\neq 0\), \(\frac{I_h}{m_hr^2} > \frac{I_s}{m_sr^2}\).
+  Therefore, the solid cylinder will reach the bottom first.
+\item
+  In \cref{NUPOCphysics11}, find the position of the electron when it hits the
+  screen.
+  Will it hit the screen?
+  What two variables can you change to determine where the electron will hit?
+  (Assume that \(d\) and \(L\) are fixed)
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 2.5in]{NUPOCphysics11}
+    \caption{An electron from a cathode ray tube TV moving towards the screen.}
+    \label{NUPOCphysics11}
+  \end{figure}
+  Let's assume the electron has mass \(m\).
+  Since the field \(E\) is downward and the electron is negative, there will be
+  an upwards force on the electron.
+  Since \(d = v_{0x}t\), we have that \(t = \frac{d}{v_{0x}}\) but
+  \(t = \frac{L}{v_{0x}}\).
+  The upward force on the electron is \(F_e = eE\).
+  By Newton's second law,
+  \[
+  F_e = ma\Rightarrow a = \frac{eE}{m}.
+  \]
+  When the electron enters the field, \(v_{0y} = 0\) and \(y_0 = 0\).
+  Then \(y(t) = a\frac{t^2}{2} = \frac{eEl^2}{2mv_{0x}^2}\).
+  This is the distance above \(\frac{d}{2}\) where the electron strikes.
+  If \(\frac{eEl^2}{2mv_{0x}^2} > \frac{d}{2}\), then
+  \(\frac{eEl^2}{mv_{0x}^2} > d\) which is above the screen so the electron
+  misses.
+  Suppose \(E\) is uniform.
+  Then \(E = \frac{+V}{d}\) and
+  \[
+  y(t) = \frac{e(+V)L^2}{2mdv_{0x}^2}.\eqnumtag\label{crt}
+  \]
+  In \cref{crt}, \(L\), \(m\), and \(d\) are fixed.
+  By changing the top plate potential, \(+V\), and the velocity of the
+  electron, we can alter the the location of the electron striking the screen.
+\item
+  Given the following data from a projectile, find the height of the parabola
+  when \(t = 4\).
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 2.5in]{NUPOCphysics12}
+    \caption{The flight of the projectile in \(4\) seconds.}
+  \end{figure}
+  We will be assuming there is no air resistance.
+  Let the initial position be \((0, 0)\) and the final position be
+  \((300, 0)\).
+  Acceleration due to gravity is \(g = -9.8 \ m/s^2\).
+  \begin{alignat*}{2}
+    y(t) &= y_0 + v_{0y}t + g\frac{t^2}{2}\\
+    y(4) &= 4v_{0y} - 4.9\cdot 16 && = {} 0\\
+    v_{0y} &= 19.6\\
+    y'(t) &= 19.6 - 9.8t && = {} 0\\
+    t &= 2
+  \end{alignat*}
+  When \(t = 2\), the projectile will reach its maximum height.
+  \[
+  y_{\max} = 19.6 \ m
+  \]
+  Thus, the height of the parabola is \(19.6 \ m\).
+\item
+  List and discuss Newton's Laws of Motion.
+  \par\smallskip
+  \textbf{Newton's first law:} When viewed in an inertial reference frame, an
+  object either remains at rest or moves at a constant velocity, unless acted
+  upon by an external force.
+  \par\smallskip
+  \textbf{Newton's second law:} \(\sum\mathbf{F} = m\mathbf{a}\)
+  \par\smallskip
+  \textbf{Newton's third law:} When one body exerts a force on a second body,
+  the second body simultaneously exerts a force equal in magnitude and opposite
+  in direction on the first body.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, height = 2in]{NUPOCphysics13}
+    \caption{Diagram of Newton's third law.}
+  \end{figure}
+  From Newton's third law, we have \(\mathbf{F}_{12} = -\mathbf{F}_{21}\).
+\item
+  A bullet with a mass of \(10 \ g\) and a velocity of \(1000 \ m/s\) embeds
+  in a wooden block with a mass of \(1000 \ g\) suspended by a rope.
+  How high will the block swing in the vertical direction.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, height = 1.5in]{NUPOCphysics14}
+    \caption{Ballistic pendulum}
+  \end{figure}
+  Since the bullet embeds in the block, we have inelastic collision.
+  At \(t_0\), the bullet is moving at \(1000 \ m/s\) with a mass of \(10 \ g\),
+  the block has \(v_{0p} = 0\), and vertical height \(h = 0\).
+  Let the final height and velocity be \(h_f\) and \(v_{fp}\), respectively.
+  We will assume there is no air resistance acting on the bullet.
+  By Conservation of Momentum, we have \(p_{1i} + p_{2i} = p_f\).
+  Let \(p_1 = m_bv_{0b}\) and \(p_2 = m_pv_{0p}\).
+  Since the bullet embeds into the block, \(p_f = (m_b + m_p)v_f\).
+  We can now solve for the final velocity.
+  \[
+  v_f = \frac{1000}{101} m/s
+  \]
+  For the Conservation of Energy, we will examine the system immediately after
+  impact and when the pendulum reaches its maximum height.
+  Immediately after impact, the pendulum has no potential energy.
+  At maximum height, the pendulum has no kinetic energy.
+  By the Conservation of Energy, we have
+  \(KE_{ib} + PE_{ib} = KE_{fp} + PE_{fp}\).
+  \[
+  \frac{1}{2}(m_b + m_p)v_f^2 = (m_b + m_p)gh
+  \]
+  where \(g\) is gravity and \(h\) is the maximum height.
+  The only unknown is \(h\); therefore, we can solve for \(h\).
+  \[
+  h = \frac{1}{2g}v_f^2 = \frac{1}{2\cdot 9.8}\Big(\frac{1000}{101}\Big)^2 m
+  \]
+\item
+  Given the following rocket sled with initial velocity equal to \(v_0\), find
+  the total distance the sled travels.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 2in]{NUPOCphysics15}
+    \caption{Rocket sled}
+  \end{figure}
+  We will assume the sled has mass \(m\) and that there is no air resistance.
+  At \(t = 0\), the sled is at rest at \(0, 0\).
+  There will only be acceleration in the y direction, gravity.
+  The velocity in the x and y direction are \(v_x = v_0\cos(\theta)\) and
+  \(v_y = v_0\sin(\theta)\), respectively.
+  We have integrated from acceleration and previously shown that
+  \begin{align*}
+    x(t) &= x_0 + v_xt + a_x\frac{t^2}{2}\\
+    y(t) &= y_0 + v_yt + a_y\frac{t^2}{2}
+  \end{align*}
+  Using what we know, we have
+  \begin{align*}
+    x(t) &= v_0\cos(\theta)t\\
+    y(t) &= v_0\sin(\theta)t - 4.9t^2
+  \end{align*}
+  When \(y = 0\), the sled will impact the ground.
+  \[
+  t_i = \frac{v_0\sin(\theta)}{4.9}s
+  \]
+  Therefore, the total distance the sled travels is
+  \[
+  x(t_i) = \frac{v_0^2\cos(\theta)\sin(\theta)}{4.9}m.
+  \]
+\item
+  Find the time it takes to hit the ground.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, height = 1.75in]{NUPOCphysics16}
+    \caption{A ball with initial velocity \(v_{0x}\).}
+  \end{figure}
+  Again, we will assume we only have acceleration due to gravity in the y
+  direction and there is no air resistance.
+  Let the initial position of the ball be \((0, 0)\).
+  The initial velocity in the y direction is \(v_{0y} = 0\).
+  Thus, we have
+  \begin{align*}
+    x(t) &= v_{0x}t\\
+    y(t) &= a_y\frac{t^2}{2}\\
+         &= -4.9t^2
+  \end{align*}
+  The ball has to drop \(h \ m\) for it to strike the ground.
+  \[
+  t = \sqrt{\frac{h}{4.9}}s
+  \]
+\item
+  A man has a velocity \(v_0 = 3 \ m/s\) and starts \(z \ m\) behind a bus with
+  initial velocity \(v_{0b} = 0\) at \(t = 0\).
+  The bus accelerates with acceleration \(a = 1 \ m/s^2\).
+  Does the man catch the bus?
+  \par\smallskip
+  We will assume that the man is not accelerating and air resistance is
+  negligible.
+  Our equations of motion for the man and the bus are then
+  \begin{align*}
+    m(t) &= m_0 + v_0t + a_m\frac{t^2}{2}\\
+         &= 3t\\
+    b(t) &= b_0 + v_{0b} + a_b\frac{t^2}{2}\\
+         &= z + \frac{t^2}{2}
+  \end{align*}
+  If the man is to catch the bus, the distance he travels must equal the
+  distance the bus travels; that is, \(m(t) = b(t)\).
+  \[
+  \frac{t^2}{2} - 3t + z = 0
+  \]
+  By the quadratic equation, we have
+  \[
+  t = 3\pm\sqrt{9 - 2z}.
+  \]
+  So \(\frac{9}{2}\geq z\).
+  In order for the man to catch the bus and barring the bus starting behind
+  the man, \(0 < z \leq\frac{9}{2}\).
+\item
+  A block of mass \(M_1\) is attached by string to a support.
+  The block is raised to a height of \(H\) and released.
+  It then strikes a block of mass \(M_2\) on a frictionless surface.
+  Find the velocity of the block \(M_2\), assuming a totally elastic collision.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[height = 1.75in, mode = image]{NUPOCphysics18}
+    \caption{\(M_1\) positioned at a height of \(h\).}
+  \end{figure}
+  With elastic collision, we have the Conservation of Momentum and Kinetic
+  Energy.
+  The block of mass \(M_2\) has initial velocity of \(0\).
+  Therefore, by the Conservation of Momentum and KE, we have
+  \begin{align*}
+    M_1v_{1i} + M_2v_{2i} &= M_1v_{1f} + M_2v_{2f}\\
+    M_1(v_{1i} - v_{1f}) &= M_2v_{2f}\eqnumtag\label{momb}\\
+    M_1v_{1i}^2 + M_2v_{2i}^2 &= M_1v_{1f}^2 + M_2v_{2f}^2\\
+    M_1(v_{1i}^2 - v_{1f}^2) &= M_2v_{2f}^2\eqnumtag\label{keb}
+  \end{align*}
+  The difference of squares can be factor to
+  \(v_{1i}^2 - v_{1f}^2 = (v_{1i} - v_{1f})(v_{1i} + v_{1f})\).
+  Let's divide \cref{keb} by \cref{momb}.
+  \[
+  \frac{v_{1i}^2 - v_{1f}^2}{v_{1i} - v_{1f}} = v_{2f}
+  \]
+  So the final velocity of the second mass after collision is
+  \(v_{2f} = v_{1i} + v_{1f}\).
+\item
+  Given the following setup, why will only one ball swing out?
+  \begin{figure}[H]
+    \centering
+    \includestandalone[height = 1in, mode = image]{NUPOCphysics19}
+    \caption{Newton's Cradle}
+  \end{figure}
+  First, assume each ball has mass \(m\).
+  At rest, \(v_0 = 0\).
+  Also, suppose \(n\) balls fly out instead of one.
+  Then by the Conservation of Momentum \(mv = nmu\), and by the Conservation of
+  Energy, \(\frac{1}{2}mv^2 = \frac{n}{2}mu^2\).
+  We have two equations with two unknowns.
+  \begin{align*}
+    v &= nu\\
+    v^2 &= nu^2
+  \end{align*}
+  It is easy to that the only solution is when \(u = v\) and \(n = 1\).
+  Therefore, we have reached a contradiction and only one ball will fly out.
+\item
+  A \(10 \ g\) bullet with velocity of \(1000 \ m/s\) strikes a \(100 \ g\)
+  block at rest.
+  What is their combined velocity?
+  Can you work the problem using the principle of Conservation of Momentum?
+  Energy?
+  \begin{figure}[H]
+    \centering
+    \includestandalone[height = 0.5in, mode = image]{NUPOCphysics20}
+    \caption{A bullet embedding into a block.}
+  \end{figure}
+  We will assume the block is on a frictionless surface.
+  This is a case of inelastic collision.
+  Let \(m\) be the mass of the bullet and \(M\) the mass of the block.
+  By Conservation of Momentum, we have
+  \[
+  mv + MV = (m + M)v_f.
+  \]
+  Since the block is initially at rest, our equation is
+  \[
+  10\cdot 1000 = 10\cdot 11v_f\Rightarrow v_f = \frac{1000}{11}m/s.
+  \]
+  Since we have inelastic, we can't use Conservation of Energy.
+\item
+  What is momentum and how is it related to Newton's second law?
+  \par\smallskip
+  Linear momentum is the product of mass times velocity of an object,
+  \(\mathbf{p} = m\mathbf{v}\).
+  Newton's second law is \(\sum\mathbf{F} = m\mathbf{a}\) but acceleration
+  is the derivative of velocity.
+  \[
+  m\mathbf{a} = \frac{d}{dt}(m\mathbf{v}) = \frac{d}{dt}\mathbf{p} =
+  \sum\mathbf{F}
+  \]
+\item
+  What is the maximum altitude reached when \(W = 100 \ lb\) and
+  \(v_0 = 100 \ ft/s\).
+  \begin{figure}[H]
+    \centering
+    \includestandalone[height = 1in, mode = image]{NUPOCphysics22}
+    \caption{An object moving up with velocity of \(v_0\).}
+  \end{figure}
+  Here we can use the Conservation of Energy.
+  Initially the potential energy will be zero, and when the object reaches its
+  maximum height, the kinetic energy will be zero.
+  Thus, we have
+  \[
+  \frac{1}{2}mv^2 = mgh\Rightarrow h = \frac{v^2}{2g} = \frac{100^2}{64}ft.
+  \]
+\item
+  A mass is dropped from a height of \(H\).
+  What is the velocity of the mass just before it hits the ground?
+  \par\smallskip
+  For this problem, we can use the Conservation of Energy.
+  Initially the kinetic energy is zero and the final potential energy is zero.
+  \[
+  mgh = \frac{1}{2}mv^2\Rightarrow v = \sqrt{2gh}
+  \]
+\item
+  Consider the following pendulum system:
+  \begin{figure}[H]
+    \centering
+    \includestandalone[height = 1.25in, mode = image]{NUPOCphysics24}
+    \caption{Simple pendulum}
+  \end{figure}
+  \begin{enumerate}[label = (\alph*), ref = \theenumi{(\alph*)}]
+  \item
+    \label{24a}
+    If the bob is release from rest, what is maximum velocity attained?
+    \par\smallskip
+    We will need to assume there is no air resistance and the bob has mass
+    \(m\).
+    Since the bob is released from rest, the initial potential energy is zero.
+    At the bob's maximum height, the kinetic energy is also zero.
+    By the Conservation of Energy, we have
+    \[
+    \frac{1}{2}mv^2 = mgh\Rightarrow v = \sqrt{2gh}.
+    \]
+  \item
+    What assumptions are made in the answer?
+    \par\smallskip
+    The assumptions we made were that air resistance is negligible and the bob
+    has mass \(m\).
+  \item
+    What difference does it make if the system is in vacuum?
+    \par\smallskip
+    By assuming we have no air resistance, we are assuming it is in a vacuum.
+    Therefore, there would no difference.
+  \item
+    Suppose a second mass \(m\) was suspended at the lowest point, what would
+    be the velocities of both masses after the collision?
+    \par\smallskip
+    Recall that for elastic collisions we can use the Conservation of Energy
+    and Momentum.
+    At \(t = 0\), the suspended bob has no potential energy, and the bob
+    hanging at equilibrium has kinetic energy.
+    Let the suspended bob have mass \(m_1\) and the bob hanging at
+    equilibruim have mass \(m_2\).
+    Then
+    \begin{align*}
+      m_1v_{1i} + m_2v_{2i} &= m_1v_{1f} + m_2v_{2f}\\
+      m_1(v_{1i} - v_{2i}) &= m_2v_{2f}\eqnumtag\label{penmo}\\
+      m_1v_{1i}^2 + m_2v_{2i}^2 &= m_1v_{1f}^2 + m_2v_{2f}^2\\
+      m_1(v_{1i}^2 - v_{1f}^2) &= m_2v_{2f}^2\eqnumtag\label{penen}
+    \end{align*}
+    We can now divide \cref{penen} by \cref{penmo} and solve for the final
+    velocities.
+    \[
+    v_{1i} + v_{1f} = v_{2f}
+    \]
+    From \cref{24a}, we have that the bobs initial velocity is
+    \(v_{1i} = \sqrt{2gh}\).
+    Thus, the final velocities are
+    \begin{align*}
+      v_{1f} &= v_{2f} - \sqrt{2gh}\\
+      v_{2f} &= v_{1f} + \sqrt{2gh}
+    \end{align*}
+  \item
+    What if the collision was non-elastic?
+    \par\smallskip
+    For inelastic collision, our Conservation equations become
+    \begin{align*}
+      m_1v_{1i} &= (m_1 + m_2)v_f\\
+      m_1v_{1i}^2 &= (m_1 + m_2)v_f^2
+    \end{align*}
+    Then we have
+    \[
+    v_{1i} = v_f = \sqrt{2gh}.
+    \]
+  \end{enumerate}
+\item
+  Given a spring with displacement force \(F = e^x\), determine the energy
+  required to move the block three units.
+  \par\smallskip
+  The force of the spring opposes \(F\) so the sum of forces is \(e^x - kx\).
+  Then the work is
+  \[
+  W = \int_0^3(e^x - kx)dx = e^x - \frac{kx^2}{2}\big|_0^3
+  = e^3 - \frac{9k}{2} - 1.
+  \]
+\item
+  Define the following:
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    \textbf{Work:} a force is to do work when it acts on a body, and there is
+    displacement of the point of application in the direction of the force.
+  \item
+    \textbf{Energy:} energy is a fundamental property of any physical object
+    or system of objects which is used to describe and predict its interaction
+    with other objects.
+  \item
+    \textbf{Power:} power is defined as the amount of energy consumed per unit
+    time.
+  \end{enumerate}
+\end{enumerate}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

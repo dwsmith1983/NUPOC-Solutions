@@ -1,0 +1,45 @@
+\documentclass[tikz]{standalone}%
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+\usetikzlibrary{decorations.markings}
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\lH}{1}
+  \pgfmathsetmacro{\lR}{2}
+  \pgfmathsetmacro{\sA}{asin(\lH/\lR)}
+  
+  \draw (0, \lH cm)
+  arc[start angle = 180 - \sA, delta angle = 2*\sA, radius = \lR]
+  arc[start angle = -\sA, delta angle = 2*\sA, radius = \lR] -- cycle;
+
+  \begin{scope}[decoration = {
+      markings,
+      mark = at position 0.1 with {\arrow{stealth}},
+      mark = at position 0.75 with {\arrow{stealth}}
+    }
+    ]
+    \foreach \y in {0.75, 0.5, 0.25, -0.25, -0.5, -0.75}{
+      \draw[postaction = decorate] (-1cm, \y cm) -- (0, \y cm) -- (1cm, 0);
+    }
+  \end{scope}
+
+  \fill[fill = black] (1cm, 0) circle[radius = 0.015cm] node[right,
+  font = \tiny, inner sep = 0.03] {$F$}; 
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

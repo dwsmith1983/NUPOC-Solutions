@@ -1,0 +1,36 @@
+\documentclass[tikz, convert = false]{standalone}%
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{tikzpicture}
+  \coordinate (O) at (0, 0);
+  \coordinate (P1) at (3, 0);
+  \coordinate (P2) at (3, 2);
+  \coordinate (P3) at (0, 2);
+
+  \draw (O) -- (P1) -- (P2) -- (P3) node[font = \scriptsize, pos = .5, above] {$L$} -- node[font = \scriptsize, pos = .5, left] {$W$} cycle;
+  \draw[dotted] ($(O) + (0.25, 0)$) -- +(0, 0.25) node[font = \tiny,
+  right, pos = .5] {$x$} -- +(-0.25, 0.25) node[font = \tiny, pos = .5, above]
+  {$x$};
+  \draw[dotted] ($(P1) - (0.25, 0)$) -- +(0, 0.25) -- +(0.25, 0.25);
+  \draw[dotted] ($(P2) - (0.25, 0)$) -- +(0, -0.25) -- +(0.25, -0.25);
+  \draw[dotted] ($(P3) + (0.25, 0)$) -- +(0, -0.25) -- +(-0.25, -0.25);
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

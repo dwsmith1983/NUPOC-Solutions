@@ -1,0 +1,74 @@
+\documentclass[tikz]{standalone}%
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{angles}
+\usetikzlibrary{quotes}
+\usetikzlibrary{intersections}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[name path = xline] (-3cm, 0) coordinate (A) -- (3cm, 0) coordinate (B)
+  node[right, font = \tiny] {normal};
+  \draw[name path = yline] (0, 3cm) -- (0, -2cm) node[below, font = \tiny]
+  {interference};
+
+  \begin{scope}[decoration = {
+      markings,
+      mark = at position 0.5 with {\arrow{stealth}}
+    }
+    ]
+    \draw[postaction = decorate] (-2.5cm, 2.5cm) coordinate (P) node[circle,
+    inner sep = 0.025cm, fill = black] {} -- (0, 0) coordinate (O)
+    node[font = \tiny, pos = 0, above] {$P$};
+    \draw[postaction = decorate] (O)  -- (2.1cm, -1cm) coordinate (Q)
+    node[circle, inner sep = 0.025cm, fill = black] {} node[font = \tiny,
+    pos = 1, right] {$Q$};
+  \end{scope}
+
+  \path (P) -- (O) -- (A) pic["$\theta_1$", angle radius = 0.5cm, angle
+  eccentricity = 1.3, draw, font = \tiny] {angle = P--O--A};
+  \path (Q) -- (O) -- (B) pic["$\theta_2$", angle radius = 0.75cm, angle
+  eccentricity = 1.3, draw, font = \tiny] {angle = Q--O--B};
+
+  \node[font = \tiny] at (-1cm, -1cm) {$n_1$};
+  \node[font = \tiny] at (1cm, 1cm) {$n_2$};
+
+  \path[name path = vline1] (P) -- +(0, -3);
+  \path[name intersections = {of = xline and vline1, by = a}];
+
+  \draw[dashed] (P) -- (a) node[below, font = \tiny] {$A$};
+
+  \path[name path = vline2] (Q) -- +(0, 2);
+  \path[name intersections = {of = vline2 and xline, by = b}];
+  
+  \draw[dashed] (Q) -- (b) node[above, font = \tiny] {$B$};
+
+  \path[name path = hline1] (P) -- +(3, 0);
+  \path[name intersections = {of = yline and hline1, by = X}];
+
+  \draw[dashed] (P) -- (X) node[right, font = \tiny] {$x$};
+
+  \path[name path = hline2] (X) -- +(3, 0);
+  \path[name path = vline3] (Q) ++(0.5cm, 0) coordinate (Q') -- +(0, 3.75);
+  \path[name intersections = {of = vline3 and hline2, by = l}];
+  
+  \draw[>= stealth, |<->|, dashed] (Q') -- (l) node[pos = 0.5, font = \tiny,
+  fill = white] {$\ell$};
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

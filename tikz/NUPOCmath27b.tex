@@ -1,0 +1,50 @@
+\documentclass[tikz, convert = false]{standalone}%
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+\usepackage{pgfplots}
+\pgfplotsset{compat = 1.10}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis lines = middle,
+    xmin = 0,
+    xmax = 2*pi,
+    ymin = -2.1,
+    ymax = 2.1,
+    xlabel style = {at = {(axis description cs: 1.1, .5)}, anchor = east},
+    ylabel style = {at = {(axis description cs: 0, .5)}, anchor = west},
+    ylabel near ticks,
+    xlabel = {x},
+    ylabel = {y},
+    xtick = {0, 1.570796, 3.141593, 4.712389, 6.283185},
+    xticklabels = {$0$, $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$},
+    unit vector ratio = 1 1 1
+    ]
+    \foreach \a/\col in {.1/blue, .5/red, 1/green, 2/orange}{
+      \begingroup\edef\temp{%
+        \endgroup\noexpand\addplot[\col, smooth]
+        gnuplot[domain = 0:2*pi, samples = 500] {\a*sin(x)};}
+      \temp
+    }
+
+    \filldraw[black] (axis cs: 3.141593, 0) circle[radius = 0.035];
+    \legend{$a = .1$, $a = .5$, $a = 1$, $a = 2$}
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

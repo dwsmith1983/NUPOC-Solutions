@@ -1,0 +1,43 @@
+\documentclass[tikz, convert = false]{standalone}
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\begin{document}
+\begin{tikzpicture}
+  \coordinate (E) at (-4, 0);
+  \coordinate (B) at (4, 0);
+  \coordinate (T) at (0, 4);
+  \coordinate (Bo) at (0, -1);
+  \coordinate (XY) at (3, 3);
+  \coordinate (P1) at (-2, 0);
+  \coordinate (P2) at (2, 0);
+
+  \draw (E) -- (B);
+  \draw (T) -- (Bo);
+  \draw (P2) -- (XY) node[font = \scriptsize, pos = .5, fill = white] {\(d_2\)};
+  \draw (P1) -- (XY) node[font = \scriptsize, pos = .5, fill = white] {\(d_1\)};
+  \draw[latex-latex] ($(P1) + (0, -1)$) -- ($(P2) + (0, -1)$) node[pos = .5,
+  font = \scriptsize, fill = white] {\(2a\)};
+  \draw (P1) -- +(0, -1);
+  \draw (P2) -- +(0, -1);
+  \draw[fill = blue, blue] (P2) circle[radius = .05cm] node[below,
+  font = \scriptsize, color = black] at ($(P2) + (-.25, 0)$) {\(P_2\)};
+  \draw[fill = blue, blue] (P1) circle[radius = .05cm] node[below,
+  font = \scriptsize, color = black] at ($(P1) + (-.25, 0)$) {\(P_1\)};
+  \draw[fill = blue, blue] (XY) circle[radius = .05cm] node[above,
+  font = \scriptsize, color = black] {\((x, y)\)};  
+\end{tikzpicture}
+\end{document}

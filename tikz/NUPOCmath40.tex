@@ -1,0 +1,35 @@
+\documentclass[tikz, convert = false]{standalone}%
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+\begin{document}
+\begin{tikzpicture}
+  \coordinate (O) at (0, 0);
+  \coordinate (X) at (4, 0);
+  \pgfmathsetmacro{\x}{4.25}
+  \pgfmathsetmacro{\y}{(\x)^2/8}
+
+  \draw (O) -- (X) -- (4, 2) -- (0, 2) -- cycle;
+  \draw[-latex] (X) -- (5, 0) node[right, font = \tiny] {$x$};
+  \draw[-latex] (0, 2) -- (0, 3) node[above, font = \tiny] {$y$};
+  \draw[blue] (O) parabola (\x, \y) node[font = \scriptsize, color = black]
+  at (4.9, 2.25) {$y = f(x)$};
+
+  \node[font = \scriptsize] at (3.5, .75) {$A$};
+  \node[font = \scriptsize] at (1.25, 1.25) {$3A$};
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

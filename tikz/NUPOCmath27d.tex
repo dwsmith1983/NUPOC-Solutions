@@ -1,0 +1,37 @@
+\documentclass[tikz, convert = false]{standalone}%
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+\usepackage{pgfplots}
+\pgfplotsset{compat = 1.10}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis lines = middle,
+    xmin = -2,
+    xmax = 7,
+    ymin = -35,
+    ymax = 10,
+    xlabel = {x},
+    ylabel = {y}
+    ]
+    \addplot[blue, smooth] gnuplot[domain = -10:10, samples = 500]
+    {3*x^2 - 17*x - 10};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

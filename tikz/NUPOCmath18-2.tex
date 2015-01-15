@@ -1,0 +1,44 @@
+\documentclass[tikz, convert = false]{standalone}%
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat = 1.10}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    no marks,
+    axis x line = center,
+    axis y line = center,
+    xmin = 0,
+    xmax = 5,
+    xlabel = {x},
+    ylabel = {y}
+    ]
+    \addplot[blue, samples = 500, smooth, name path = pinvx]
+    gnuplot[domain = .5:5] {1/x}
+    node[pos = .37, color = black, font = \scriptsize, above] {$\Delta x$};
+    \addplot[red, samples = 500, smooth, name path = ninvx]
+    gnuplot[domain = .5:5] {-1/x};
+    \addplot[gray] fill between[of = pinvx and ninvx,
+    soft clip = {domain = 1.6:1.75}];
+    \legend{$\frac{1}{x}$, $\frac{-1}{x}$}
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

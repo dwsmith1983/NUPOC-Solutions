@@ -1,0 +1,1608 @@
+%  Solutions to the math section of NUPOC study guide
+\section{Mathematics, Calculus, and Differential Equations}
+
+\begin{enumerate}
+\item
+  What is a solution to the equation \((1 - y)^2 + 2xy = 0\).
+  \par\smallskip
+  It is apparent that \((1, 1)\) and \((1, 0)\) can't be solutions.
+  Therefore, the only two solutions to consider are \((1, i)\) and \((i, 1)\).
+  If we take \((i, 1)\), then our equation becomes
+  \[
+  2i = 0
+  \]
+  which isn't true.
+  Thus, the solution must be \((1, i)\).
+  Let's check to see.
+  \begin{align*}
+    (1 - i)^2 + 2i &= 0\\
+    1 - 2i - 1 + 2i &= 0
+  \end{align*}
+  As we can see, everything checks out.
+\item
+  The set of all points \(P(x, y)\) in a plane, such that the difference of their
+  distance from two fixed points is a positive constant is called?
+  \par\smallskip
+  Let's start be looking at a diagram of the situation.
+  Also, note that we can always make a change of coordinates that puts our two
+  fixed points on the x axis line.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCmath2}
+    \caption{The geometry of two fixed points from the point \((x, y)\).}
+  \end{figure}
+  Now, let \(P_1 = (-a, 0)\) and \(P_2 = (a, 0)\).
+  We can find both \(d_1\) and \(d_2\) by use of the distance formula.
+  \begin{gather*}
+    d_1 = \sqrt{(x + a)^2 + y^2}\\
+    d_1 = \sqrt{(x - a)^2 + y^2}
+  \end{gather*}
+  Using the premise of the question that the difference of their distance is a
+  positive constant, we have
+  \begin{align*}
+    R &= \sqrt{(x + a)^2 + y^2} - \sqrt{(x - a)^2 + y^2}\\
+    \intertext{Using algebra, we can begin to re-write our equation above.}
+    \bigg(R + \sqrt{(x - a)^2 + y^2}\bigg)^2 &= (x + a)^2 + y^2\\
+    R^2 + 2R\sqrt{(x - a)^2 + y^2} + (x - a)^2 + y^2 &= (x + a)^2 + y^2\\
+    \frac{R}{2}\sqrt{(x - a)^2 + y^2} &= ax - \Big(\frac{R}{2}\Big)^2\\
+    \Big(\frac{R}{2}\Big)^2\big((x - a)^2 + y^2\big)
+      &= a^2x^2 - 2ax\Big(\frac{R}{2}\Big)^2 + \Big(\frac{R}{2}\Big)^4\\
+    x^2\Bigg(\Big(\frac{R}{2}\Big)^2 - a^2\Bigg) + \Big(\frac{R}{2}\Big)^2y^2
+      &= \Big(\frac{R}{2}\Big)^2\Bigg(\Big(\frac{R}{2}\Big)^2 - a^2\Bigg)\\
+         \frac{x^2}{\big(\frac{R}{2}\big)^2} +
+         \frac{y^2}{\big(\frac{R}{2}\big)^2 - a^2} &= 1\eqnumtag\label{ell}
+  \end{align*}
+  At this point, we have an equation for an ellipse.
+  Unfortunately, we have one question that needs to be cleared up.
+  Is \(\big(\frac{R}{2}\big)^2 - a^2 > 0\)?
+  Given an arbitrary triangle with sides \(a\), \(b\), and \(c\), we know by the
+  triangle inequality that the addition of two sides of the triangle is always
+  greater than or equal to the remaining side.
+  That is,
+  \[
+  a + b \geq c
+  \]
+  or any permutation of the sides.
+  We can know apply this result to our triangle.
+  \begin{align*}
+    d_1 + d_2 &\geq 2a\\
+    d_1 + 2a &\geq d_2\eqnumtag\label{t2}\\
+    d_2 + 2a &\geq d_1\eqnumtag\label{t3}
+  \end{align*}
+  Let's re-write \cref{t2,t3}.
+  \begin{align*}
+    2a &\geq d_2 - d_1\\
+    2a &\geq d_1 - d_2
+  \end{align*}
+  From these two equations, we have that \(2a\geq\lvert d_1 - d_2\rvert\).
+  Since the distance between difference of the two fixed points is a positive
+  constant, \(\lvert d_1 - d_2\rvert = R\).
+  Thus,
+  \[
+  2a\geq R\Rightarrow a\geq \frac{R}{2}.
+  \]
+  Let's go back to \cref{ell}.
+  Since we know now that \(a\geq \frac{R}{2}\), we must re-write \cref{ell}.
+  \[
+  \frac{x^2}{\big(\frac{R}{2}\big)^2} - \frac{y^2}{\big(\frac{R}{2}\big)^2 - a^2}
+  = 1
+  \]
+  which is the equation of a hyperbola.
+\item
+  A propeller plane and a jet travel \(3000\) miles.
+  The velocity of the plane is \(1/3\) the velocity of the jet.
+  It takes the prop plane \(10\) hours longer to complete the trip.
+  What is the velocity of the jet?
+  \par\smallskip
+  We can model the time it takes the prop plane to complete the journey as
+  \(t_p = t_j + 10\), and the distance is simply the velocity times time.
+  Since both the prop plane and the jet travels the same distance,
+  \begin{align*}
+    v_jt_j &= \frac{v_j}{3}(t_j + 10)\\
+    t_j &= 5
+  \end{align*}
+  So we have found the time it take the jet to complete the trip is \(5\) hours.
+  Since \(3000 = v_jt_j\) and we now know the time of the jet, we can find that
+  the velocity is \(v_j = 600 \ mph\).
+\item
+  What is the center of \(x^2 + y^2 - 2x - 4y - 17 = 0\)?
+  \par\smallskip
+  For this problem, we will use the technique of completing the square.
+  \begin{align*}
+    x^2 - 2x + y^2 - 4y &= 17\\
+    \intertext{For completing the square, we must add and subtract
+    \(\big(\frac{b}{2}\big)^2\) to the quadratic polynomials.}
+    x^2 - 2x + 1 - 1 + y^2 - 4y + 4 - 4 &= 17\\
+    (x - 1)^2 + (y - 2)^2 &= 22
+  \end{align*}
+  We now have an equation of a circle centered at \((1, 2)\) with radius
+  \(\sqrt{22}\).
+\item
+  Rewrite with nothing higher than order \(2\):
+  \[
+  \frac{a^4 + b^4}{a^2 + b^2}
+  \]
+  Without using Complex variables, neither the numerator nor the denominator
+  readily factors.
+  We could use long division, but there is another way.
+  For instance, take the denominator \(a^2 + b^2\).
+  What happens when we square it?
+  Well, we get \(a^4 + b^4 + 2a^2b^2\).
+  Therefore, \((a^2 + b^2)^2 - 2a^2b^2 = a^4 + b^4\).
+  By making this substitution, we obtain
+  \[
+  a^2 + b^2 - \frac{2a^2b^2}{a^2 + b^2}
+  \]
+  which has no order higher than \(2\).
+\item
+  Simplify \(\frac{3 + 2i}{3 - 2i}\)
+  \par\smallskip
+  To simplify a complex fraction, we need to first multiple by the conjugate
+  where the conjugate of \(a + bi\) is defined as \(a - bi\).
+  \[
+  \frac{(3 + 2i)^2}{(3 - 2i)(3 + 2i)} = \frac{5 + 12i}{11} 
+  \]
+\item
+  Solve the following linear system
+  \begin{align*}
+    5x - 4y + 2z &= 0\\
+    -3x + 4y &= 6\\
+    x + 4z &= 6
+  \end{align*}
+  For this problem, we can use matrix row operations to determine the tuple
+  \((x, y, z)\).
+  \[
+  \begin{bmatrix}
+    5 & -4 & 2 & 0\\
+    -3 & 4 & 0 & 6\\
+    1 & 0 & 4 & 6
+  \end{bmatrix}
+  \]
+  Our goal here is to obtain zeros under every pivot position where the pivot
+  positions are \(a_{ii}\) where \(i = 1\), \(2\), and \(3\).
+  Using row operations, let \(r_2 = r_2 + 3r_3\) where each row is written is
+  lowest form.
+  \[
+  \begin{bmatrix}
+    5 & -4 & 2 & 0\\
+    0 & 1 & 3 & 6\\
+    1 & 0 & 4 & 6
+  \end{bmatrix}
+  \]
+  Then take \(r_1 = r_1 - 5r_3\).
+  \[
+  \begin{bmatrix}
+    0 & 2 & 9 & 15\\
+    0 & 1 & 3 & 6\\
+    1 & 0 & 4 & 6
+  \end{bmatrix}
+  \]
+  We can interchange row one and row three but let's wait on that.
+  Finally, take \(r_1 = r_1 - 2r_2\).
+  \[
+  \begin{bmatrix}
+    0 & 0 & 1 & 1\\
+    0 & 1 & 3 & 6\\
+    1 & 0 & 4 & 6
+  \end{bmatrix}
+  \]
+  The top row tells use that \(z = 1\).
+  From row two, we have that \(y = 3\), and from row three, \(x = 2\).
+  That is, our tuple is \((2, 3, 1)\).
+\item
+  What is a logarithm?
+  How is \(e\), the natural logarithm base, defined?
+  \par\smallskip
+  Let \(\log_a(b) = x\).
+  Then the logarithm identifies the power \(a\) needs to be raised to equal
+  \(b\).
+  In other words, \(a^x = b\).
+  The natural logarithm is log base, \(\log_e(a) = x\Rightarrow e^x = a\).
+  In calculus, the natural log is defined as
+  \[
+  \ln(x) = \int_0^x\frac{1}{t} \ dt.
+  \]
+\item
+  The number of square feet in a circle is equal to the number of in feet of
+  the circle's circumference.
+  What is the circle's radius?
+  \par\smallskip
+  By the premise, we have \(2\pi r = \pi r^2\).
+  Solving for \(r\), we obtain \(r(r - 2) = 0\).
+  So \(r = 0, 2\).
+  Zero is a trivial solution so \(r = 2\).
+\item
+  \label{circ}
+  Derive the equation of a circle around any point.
+  \par\smallskip
+  Let \((h, k)\) be the center of the circle and \((x, y)\) be a point on the
+  circle.
+  Let's define the radius to be \(r\).
+  Then the distance between any point \((x, y)\) and the center is
+  \[
+  r = \sqrt{(x - h)^2 + (y - k)^2}\Rightarrow r^2 = (x - h)^2 + (y - k)^2
+  \]
+  which is the equation of a circle around the center \((h, k)\) with radius
+  \(r\).
+\item
+  Given a closed box, where the length is twice the height, the width is \(10m\)
+  less than the length, and the surface area is \(10\) times the width times the
+  height, what are the dimensions?
+  \par\smallskip
+  The surface of a rectangular box is defined as
+  \[
+  SA = 2h\ell + 2w\ell + 2hw.
+  \]
+  For our box, \(\ell = 2h\), \(w = 2h - 10\), and \(SA = 10(2h - 10)h\).
+  \begin{align*}
+    SA &= 2h\ell + 2w\ell + 2hw\\
+       &= 2\big(2h^2 + 4h^2 - 20h + 2h^2 - 10h\big)\\
+       &= 16h^2 - 60h\\
+    20h^2 - 100h &= 16h^2 - 60h\\
+    4h^2 - 40h &= 0\\
+    h(h - 10) &= 0
+  \end{align*}
+  Therefore, \(h = 10\) so \(\ell = 20\) and \(w = 10\).
+\item
+  Derive the quadratic equation.
+  \par\smallskip
+  The general form of a parabolic equation is \(ax^2 + bx + c = 0\).
+  First, we will divide by \(a\) and then complete the square.
+  \begin{align*}
+    x^2 + \frac{b}{a}x + \frac{c}{a} &= 0\\
+    \Big(x + \frac{b}{2a}\Big)^2 &= \frac{b^2}{4a^2} - \frac{c}{a}\\
+    x + \frac{b}{2a} &= \pm\sqrt{\frac{b^2 - 4ac}{4a^2}}\\
+    x &= \frac{-b\pm\sqrt{b^2 - 4ac}}{2a}
+  \end{align*}
+\item
+  What geometric surface encloses the maximum volume with the minimum surface
+  area?
+  How do you prove it?
+  \par\smallskip
+  \textbf{This will be added in last.}
+\item
+  What type of smooth curve would go through these points: \((0, 4)\) and
+  \((\pm 2, 0)\)?
+  What would the equation be?
+  \par\smallskip
+  Since we are given the x-intercepts, we know the function is of the form
+  \(f(x) = (x - 2)(x + 2) = x^2 - 4\) but this function has a y-intercept of
+  \(-4\) not \(4\).
+  If we take the negative of \(f(x)\), we obtain \(f(x) = -x^2 + 4\) which is a
+  parabola that opens down with the appropriate x and y intercepts.
+\item
+  Find the area of \cref{15a,15b} using calculus and also derive the formulas for
+  the volume of \cref{15c,15d}.
+  \begin{enumerate}[label = (\alph*), ref = \theenumi{(\alph*)}]
+  \item
+    \label{15a}
+    Triangle
+    \par\smallskip
+    For any triangle on the xy-plane, we can always perform a change in
+    coordinates so that one of the vertices is at the origin and one edge is
+    along the x axis.
+    Therefore, we will only consider a triangle that his this geometry.
+    \begin{figure}[H]
+      \centering
+      \includestandalone[mode = image, width = 3in]{NUPOCmath15a}
+      \caption{An arbitrary triangle with an edge on the x axis starting at
+        the origin.}
+    \end{figure}
+    Before we begin, let's perform our sanity check.
+    The area of the triangle is \(A = \frac{x_2y_1}{2}\); therefore, the formula
+    that we are going to derive from calculus better equal this.
+    The integral defines the area under the curve.
+    That is, we can come up with an integral over our domain that should be the
+    area of a triangle.
+    First, let's determine the lines \(OP1\) and \(P1P2\).
+    \begin{gather*}
+      OP1 \Rightarrow f_1(x) = \frac{y_1}{x_1}x\\
+      P1P2 \Rightarrow f_2(x) = \frac{y_1}{x_1 - x_2}x -
+      \frac{y_1x_2}{x_1 - x_2}
+    \end{gather*}
+    We can break up our integral over the domain of the triangle as
+    \begin{align*}
+      \int_0^{x_1}f_1(x)dx + \int_{x_1}^{x_2}f_2(x) \ dx
+      &= \int_0^{x_1}\frac{y_1}{x_1}x \ dx + \int_{x_1}^{x_2}\bigg(
+        \frac{y_1}{x_1 - x_2}x - \frac{y_1x_2}{x_1 - x_2}\bigg)dx\\
+      &= \frac{y_1}{2x_1}x^2\bigg|_0^{x_1} + \frac{y_1}{x_1 - x_2}
+         \bigg[\frac{x^2}{2} - x_2x\bigg|_{x_1}^{x_2}\\
+      &= \frac{y_1x_1}{2} + \frac{y_1}{x_1 - x_2}\bigg(\frac{x_2^2 - x_1^2}{2}
+         - x_2(x_2 - x_1)\bigg)\\
+      &= \frac{y_1x_1}{2} + y_1x_2 - \frac{y_1(x_2 + x_1)}{2}\\
+      &= \frac{y_1x_2}{2}
+    \end{align*}
+  \item
+    \label{15b}
+    Circle
+    \par\smallskip
+    From \cref{circ}, we previously determined the equation for a circle with
+    center \((h, k)\) and radius \(a\) is
+    \[
+    a^2 = (x - h)^2 + (y - k)^2.
+    \]
+    Let's solve this equation for \(y\).
+    Then \(y(x) = \pm\sqrt{a^2 - (x - h)^2} + k\).
+    By performing a change of coordinates, we can write our equations as
+    \(y(x) = \pm\sqrt{a^2 - x^2}\).
+    That is, a circle with origin \((0, 0)\).
+    Let's convert to polar coordinates.
+    Let \(x = a\sin(\theta)\) where the bounds of integration go from
+    \(x\in[-a, a]\) to \(\theta\in\big[\frac{-\pi}{2}, \frac{\pi}{2}\big]\).
+    Moreover, we can use the symmetry property of the circle to take \(4\) times
+    the integral with bound \(\theta\in\big[0, \frac{\pi}{2}\big]\).
+    Then \(dx = a\cos(\theta) \ d\theta\).
+    \begin{align*}
+      4\int_0^{\pi/2}\sqrt{a^2 - a^2\sin^2(\theta)}(a\cos(theta) \ d\theta)
+      &= 4a^2\int_0^{\pi/2}\sqrt{1 - \sin^2(\theta)}\cos(\theta) \ d\theta\\
+      &= 4a^2\int_0^{\pi/2}\cos^2(\theta) \ d\theta\\
+      \intertext{Recall that \(\cos^2(x) = \frac{1}{2}(1 + \cos(2x))\).
+      Then}
+      &= 2a^2\int_0^{\pi/2}(1 + \cos(2\theta)) \ d\theta\\
+      &= \pi a^2 + \big[a^2\sin(2\theta)\big|_0^{\pi/2}\\
+      &= \pi a^2
+    \end{align*}
+    Again, we can do a sanity check.
+    The area of a circle is \(A = \pi r^2\).
+    Since are radius is \(a\), we have obtained the correct formula for the area
+    of a circle.
+  \item
+    \label{15c}
+    Pyramid
+    \par\smallskip
+    Volume is the integral of the area.
+    Let's take a look in the xz, yz, and xy plane of pyramid with length
+    \(\ell\), width \(w\), and height \(h\).
+    \begin{figure}[H]
+      \centering
+      \subcaptionbox{xy plane}{\includestandalone[mode = image, width = 2in]{NUPOCmath15cxy}}
+      \subcaptionbox{xz plane}{\includestandalone[mode = image, width = 2in]{NUPOCmath15cxz}}
+      \subcaptionbox{yz plane}{\includestandalone[mode = image, width = 2in]{NUPOCmath15cyz}}
+      \caption{2D views of a 3D pyramid}
+      \label{pyramid}
+    \end{figure}
+    The differential area \(\Delta z\) is simply \(A = x\cdot y\) where \(x\)
+    and \(y\) depend on the height of pyramid.
+    Let's find the line that goes through \(h\) and \(\frac{\ell}{2}\) and
+    \(\frac{w}{2}\), respectively.
+    \begin{gather}
+      z(x) = -\frac{2h}{\ell}x + h\label{zx}\\
+      z(y) = -\frac{2h}{w}y + h\label{zy}
+    \end{gather}
+    Since \(x\) and \(y\) depend on \(z\), we need to write \(x\) and \(y\) in
+    terms of \(z\) from \cref{zx,zy}.
+    Before we do, notice that \cref{zx,zy} only govern half of the pyramid in
+    their respective plane.
+    Therefore, \(A = (2x)(2y)\) to make up for this discrepancy.
+    \begin{gather*}
+      2x = \ell\bigg(1 - \frac{z}{h}\bigg)\\
+      2y = w\bigg(1 - \frac{z}{h}\bigg)
+    \end{gather*}
+    So \(A = w\ell\big(1 - \frac{z}{h}\big)^2\).
+    \begin{align*}
+      V &= \int_DA \ dA\\
+        &= w\ell\int_0^h\bigg(1 - \frac{z}{h}\bigg)^2dz\\
+        &= w\ell\int_0^h \bigg(1 - 2\frac{z}{h} + \frac{z^2}{h^2}\bigg)dz\\
+        &= w\ell\bigg(h - h + \frac{h}{3}\bigg)\\
+        &= \frac{w\ell h}{3}
+    \end{align*}
+  \item
+    \label{15d}
+    Cone
+    \par\smallskip
+    In common usage, cones are assumed to be right circular.
+    That is, the base is a circle of some radius \(r\) and right implies height
+    of the cone runs through the center at right angles straight up.
+    Then for a cone, the view from the xz and yx planes are the same.
+    \begin{figure}[H]
+      \centering
+      \includestandalone[mode = image, width = 3in]{NUPOCmath15d}
+      \caption{A right circular cone with height \(h\).}
+    \end{figure}
+    In this case, our differential area is circle that depends on its height;
+    that is, the radius of the circle changes.
+    Since the area of a circle is \(A = \pi r^2\) and our radius depends on
+    \(z\), we have \(A(z) = \pi (r(z))^2\).
+    Let's assume our circle has a radius of \(\ell\) at the base which is the top
+    of the cone since it is inverted.
+    Then we have a line from the origin to \(x, y = \pm\frac{\ell}{2}\).
+    \begin{gather}
+      z(x) = \frac{2h}{\ell}x\label{15dzx}\\
+      z(y) = \frac{2h}{\ell}y
+    \end{gather}
+    Solving for \(z\) in \cref{15dzx}, we will obtain \(x = \frac{\ell}{2h}z\).
+    As in the previous problem, this is only considering half of the cone.
+    Therefore, \(r = 2x = \frac{\ell}{h}z\).
+    \begin{align*}
+      V &= \int_DhA \ dA\\
+        &= \frac{\pi\ell^2}{h^2}\int_0^hz^2 \ dz\\
+        &= \frac{\pi\ell^2h}{3}
+    \end{align*}
+  \end{enumerate}
+\item
+  Draw the following curves and find the area between them:
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    \(y = x^3\) and \(y = x^2\)
+    \par\smallskip
+    In order to find the area between the two curves, we need to determine the
+    domain of interest.
+    By setting the functions equal to each other, we will be able to find their
+    points of intersection.
+    In this problem, this is a trivial task and one can easily see that the
+    domain is \(x\in[0, 1]\).
+    \begin{figure}[H]
+      \centering
+      \includestandalone[mode = image, width = 3in]{NUPOCmath16a}
+      \caption{}
+    \end{figure}
+    The area between to curves is
+    \[
+    \int_D(f(x) - g(x)) \ dx
+    \]
+    where \(f(x)\) is the top curve and \(g(x)\) is the bottom curve.
+    \[
+    \int_0^1(x^2 - x^3) \ dx = \frac{1}{3}x^3 - \frac{1}{4}x^4\Big|_0^1 =
+    \frac{1}{12}
+    \]
+  \item
+    \(y = x^2\) and \(y = x\)
+    \par\smallskip
+    As with the previous part, we have that \(x\in[0, 1]\).
+    \begin{figure}[H]
+      \centering
+      \includestandalone[mode = image, width = 3in]{NUPOCmath16b}
+      \caption{}
+    \end{figure}
+    In this case, we have
+    \[
+    \int_0^1(x - x^2) \ dx = \frac{1}{2}x^2 - \frac{1}{3}x^3\Big|_0^1 =
+    \frac{1}{6}.
+    \]
+  \end{enumerate}
+\item
+  Plot \(f(x) = x^2 + x - 6\).
+  Find the area between the x axis on the top, the line \(y = -4\) on the
+  bottom, and the graph on each side.
+  \par\smallskip
+  When dealing with a parabola, we can try to factor, complete the square,
+  and/or use the quadratic equation.
+  In this problem, \(f(x)\) is factorable.
+  \[
+  f(x) = (x - 3)(x + 2)
+  \]
+  We now know that the x-intercepts are \(x = 3, -2\) and the y-intercept is
+  \(y = -6\).
+  To find the vertex of the parabola, we need to complete the square which leads
+  to the following form of \(f(x)\).
+  \[
+  f(x) = \Big(x + \frac{1}{2}\Big)^2 - \frac{25}{4}
+  \]
+  Thus, the vertex is \(\big(-\frac{1}{2}, -\frac{25}{4}\big)\).
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCmath17}
+    \caption{}
+  \end{figure}
+  Since we want to find the area of the both pieces of the divided parabola,
+  let's start by first finding the total area of the parabola below the x
+  axis.
+  \[
+  \int_{-3}^2(-x^2 - x + 6) \ dx =
+  -\frac{1}{3}x^3 - \frac{1}{2}x^2 + 6x\Big|_{-3}^2 = \frac{125}{6}
+  \]
+  Now, once we find one of the other areas, we can subtract it from the total
+  area to get the other side.
+  We need to find where the function \(f(x) = -4\) intersects the parabola.
+  \[
+  x^2 + x - 6 = -4\Rightarrow x^2 + x - 2 = (x + 2)(x - 1)
+  \]
+  So intersection occurs at \(x = -2\) and \(x = 1\).
+  \[
+  A_{\text{below}} = \int_{-2}^1(-4 - x^2 - x + 6) \ dx =
+  \int_{-2}^1(-x^2 - x + 2) \ dx = \frac{9}{2}
+  \]
+  Therefore, the area bounded by the x axis and \(f(x) = -4\) is
+  \(A_{\text{above}} = \frac{49}{3}\).
+\item
+  Rotate \(y = \frac{1}{x}\) about the x axis and find the volume from \(1\)
+  to infinity.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCmath18}
+    \caption{\(\frac{1}{x}\) rotated about the x axis on the domain
+      \(x\in[0.5, 5]\).}
+  \end{figure}
+  In order to find the volume, we need to determine the differential we will
+  use.
+  Therefore, let's take a look at our solid in the xy plane.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCmath18-2}
+    \caption{A two dimensional view of the solid.}
+  \end{figure}
+  The volume of the solid is \(V = \int_D\text{A} \ dA\) where the area is
+  \(\pi r^2\).
+  As \(\Delta x\) moves from \([1, \infty)\), the differential circle changes
+  accordingly.
+  That is, \(r(x) = \frac{1}{x}\).
+  \[
+  V = \pi\int_1^{\infty}\frac{1}{x^2} \ dx = \frac{-\pi}{x}\bigg|_1^{\infty}
+  = \pi
+  \]
+  This problem is traditionally known as Gabriel's Horn which has infinite
+  surface area and finite volume.
+\item
+  Determine the area between two concentric circles of radii \(1\) and \(2\),
+  respectively, using calculus.
+  \par\smallskip
+  Before we use calculus to find the area, we can determine the area from
+  geometry.
+  With this solution, we will be able to check are result from our calculus
+  approach.
+  The area between the two circles is simply the difference or
+  \(A = \pi(r_1^2 - r_2^2) = 3\pi\).
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCmath19}
+    \caption{The area between two concentric circles of radii \(1\) and \(2\).}
+  \end{figure}
+  The equations for two circles of radii \(1\) and \(2\), respectively, centered
+  at the origin are
+  \begin{align*}
+    x^2 + y^2 & = 4\\
+    x_1^2 + y_1^2 &= 1
+  \end{align*}
+  which we derived in \cref{circ}.
+  Solving for \(y\), we have
+  \begin{align*}
+    y &= \pm\sqrt{4 - x^2}\\
+    y_1 &= \pm\sqrt{1 - x_1^2}
+  \end{align*}
+  Due to the nature of the problem, polar coordinates are preferred.
+  Therefore, let \(x = 2\sin(\theta)\) and \(x_1 = \sin(\theta)\).
+  Then \(dx = 2\cos(\theta)d\theta\) and \(dx_1 = \cos(\theta)d\theta\).
+  Additionally, our bounds of integration are now
+  \(x\in[-2, 2]\to\theta\in\big[\frac{-\pi}{2}, \frac{\pi}{2}\big]\) which is
+  only the right half of the circle.
+  Since a circle is symmetric, we only need to integrate from
+  \(\theta\in\big[0, \frac{\pi}{2}\big]\).
+  This is only a quarter of the area so need to multiple this integral by \(4\).
+  \[
+  A = 4\int_0^{\pi/2}(4\cos^2(\theta) - \cos^2(\theta))d\theta =
+  4\bigg[\pi - \frac{\pi}{4}\bigg] = 3\pi
+  \]
+\item
+  Integrate the following:
+  \begin{enumerate}[label = (\alph*), ref = \theenumi{(\alph*)}]
+  \item
+    \label{20a}
+    \(\int(x\sin(x)) \ dx\)
+    \par\smallskip
+    To integrate the above integral, we need to use integration by parts.
+    Recall that integration by parts is
+    \[
+    uv - \int v \ du.
+    \]
+    Let \(x = u\) and \(dv = \sin(x)\).
+    Then \(dx = du\) and \(v = -\cos(x)\).
+    \[
+    -x\cos(x) + \int\cos(x) \ dx = -x\cos(x) + \sin(x) + C
+    \]
+  \item
+    \(\int x\sqrt{x^2 - 4} \ dx\)
+    \par\smallskip
+    This is integral is done by u-substitution.
+    Let \(u = x^2 - 4\).
+    Then \(du = 2xdx\Rightarrow dx = \frac{du}{2}\).
+    \[
+    \frac{1}{2}\int\sqrt{u} \ du = \frac{1}{3}u^{3/2} + C =
+    \frac{1}{3}(x^2 - 4)^{3/2} + C
+    \]
+  \item
+    \(\int\frac{e^4 - \frac{3}{x}}{x^2} \ dx\)
+    \par\smallskip
+    Here we have a straight forward integral.
+    All we need to do is write fraction as a difference of two fractions.
+    \[
+    \int\bigg(\frac{e^4}{x^2} - \frac{3}{x^3}\bigg)dx =
+    \frac{-e^4}{x} + \frac{3}{2x^2} + C
+    \]
+  \item
+    \(\int(e^{-x} + 3x^2) \ dx\)
+    \par\smallskip
+    Again, we have another trivial integral.
+    \[
+    \int(e^{-x} + 3x^2) \ dx = -e^{-x} + x^3 + C
+    \]
+  \item
+    \(\int(x\sin^2(x) + x^3) \ dx\)
+    \par\smallskip
+    For this integral, recall \(\sin^2(x) = \frac{1}{2}(1 - \cos(2x))\).
+    The
+    \[
+    \frac{1}{2}\int(x - x\cos(2x)) \ dx + \int x^3 \ dx =
+    \frac{x^2}{4} - \frac{1}{2}\int x\cos(2x) \ dx + \frac{x^4}{4} + C
+    \]
+    As in the \cref{20a}, we need to use integration by parts again.
+    Let \(u = x\) and \(dv = \cos(2x)\).
+    Then \(du = dx\) and \(v = \frac{1}{2}\sin(2x)\).
+    \[
+    \frac{x^2 + x^4 - x\sin(2x) + C}{4} + \frac{1}{4}\int\sin(2x) \ dx =
+    \frac{x^2 + x^4 - x\sin(2x) + C}{4} - \frac{\cos(2x)}{8}
+    \]
+  \item
+    \(\int\sec(u)\tan(u) \ du\)
+    \par\smallskip
+    This is a standard substitution problem since
+    \(\frac{d}{du}(\sec(u)) = \sec(u)\tan(u)\).
+    \[
+    \int\sec(u)\tan(u) \ du = \sec(u) + C
+    \]
+  \item
+    \(\int xe^x \ dx\)
+    \par\smallskip
+    This is another integration by parts.
+    Let \(u = x\) and \(dv = e^x\).
+    Then \(du = dx\) and \(v = e^x\).
+    \[
+    xe^x - \int e^x \ dx = e^x(x - 1) + C
+    \]
+  \item
+    \(\int(y + 3)(y + 1) \ dy\)
+    \par\smallskip
+    For this problem, it will serve us better to multiple the factored
+    polynomial out.
+    Thus, \(y^2 + 4y + 3 = (y + 3)(y + 1)\).
+    \[
+    \int(y^2 + 4y + 3) \ dy = \frac{y^3}{3} + 2y^2 + 3y + C
+    \]
+  \item
+    \(\int_0^R\int_0^{\pi/2}\int_0^{\pi/2}r\sin(\theta) \ d\phi d\theta dr\)
+    \par\smallskip
+    Iterative integrals work exactly like single integrals.
+    In these situations, we treat the additional parameter to what we are
+    integrating over as a constant.
+    \begin{align*}
+      \int_0^R\int_0^{\pi/2}\int_0^{\pi/2}r\sin(\theta) \ d\phi d\theta dr
+      &= \frac{\pi}{2}\int_0^R\int_0^{\pi/2}r\sin(\theta) \ d\theta dr\\
+      &= -\frac{\pi}{2}\int_0^R\cos(\theta)\big|_0^{\pi/2} \ dr\\
+      &= \frac{\pi}{2}\int_0^Rr \ dr\\
+      &= \frac{\pi R^2}{4} + C
+    \end{align*}
+  \item
+    \(\int(2x + 1) \ dx\)
+    \par\smallskip
+    This last integral is just a basic integration.
+    \[
+    \int(2x + 1) \ dx = x^2 + x + C
+    \]
+  \end{enumerate}
+\item
+  Take the derivative with respect to \(x\) of the following:
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    \(\cos^4(x)\sin(x)\)
+    \par\smallskip
+    A derivative of a product of functions requires the product rule,
+    \[
+    \frac{d}{dx}(f(x)g(x)) = f'g + fg'.
+    \]
+    Furthermore, since we have power of cosine, we will need to also use the
+    chain rule,
+    \[
+    \frac{d}{dx}(f\circ g)(x) = f'(g(x))g'(x).
+    \]
+    Therefore, the derivative is
+    \[
+    \frac{d}{dx}\big(\cos^4(x)\sin(x)\big) =
+    -4\cos^3(x)\sin^2(x) + \cos^5(x).
+    \]
+  \item
+    \(\frac{ae^{-bx}}{cx^2}\)
+    \par\smallskip
+    For this problem, we can use the quotient or product rule.
+    To use the product rule, we need to write the expression as
+    \(\frac{a}{c}e^{-bx}x^{-2}\) and proceed as before, but I will use the
+    quotient rule here,
+    \[
+    \frac{d}{dx}\bigg(\frac{f(x)}{g(x)}\bigg) = \frac{f'g - fg'}{g^2}.
+    \]
+    Thus, the derivative is
+    \[
+    \frac{d}{dx}\bigg[\frac{ae^{-bx}}{cx^2}\bigg] =
+    \frac{-a(be^{-bx}x^2 + 2e^{-bx}x)}{cx^4} =
+    \frac{-a(be^{-bx}x + 2e^{-bx})}{cx^3}.
+    \]
+  \item
+    \(5x^4\)
+    \par\smallskip
+    Here the derivative is simply \(\frac{d}{dx}(5x^4) = 20x^3\).
+  \item
+    \(x\sqrt{x^2 - 4}\)
+    \par\smallskip
+    Again, we will use the product and chain rule.
+    \[
+    \frac{d}{dx}\big(x\sqrt{x^2 - 4}\big) = \sqrt{x^2 - 4} +
+    \frac{x^2}{\sqrt{x^2 - 4}}
+    \]
+  \item
+    \(\sin(x)\), \(\cos(x)\), \(\tan(x)\), \(\cot(x)\), \(\sec(x)\), and
+    \(\csc(x)\)
+    \begin{align*}
+      \frac{d}{dx}(\sin(x)) &= \cos(x)\\
+      \frac{d}{dx}(\cos(x)) &= -\sin(x)\\
+      \frac{d}{dx}(\tan(x)) &= \sec^2(x)\\
+      \frac{d}{dx}(\cot(x))
+      &= \frac{d}{dx}\bigg(\frac{\cos(x)}{\sin(x)}\bigg)\\
+                            &= \frac{-\sin^2(x) - \cos^2(x)}{\sin^2(x)}\\
+                            &= -\csc^2(x)\\
+      \frac{d}{dx}(\sec(x)) &= \sec(x)\tan(x)\\
+      \frac{d}{dx}(\csc(x)) &= \frac{d}{dx}\bigg(\frac{1}{\sin(x)}\bigg)\\
+                            &= \frac{-\cos(x)}{\sin^2(x)}\\
+                            &= -\cot(x)\csc(x)
+    \end{align*}
+  \item
+    \(\ln(x)\) and \(10^x\)
+    \par\smallskip
+    For the natural log, the derivative rule is
+    \[
+    \frac{d}{dx}(\ln(f(x))) = \frac{f'}{f}.
+    \]
+    Therefore, \(\frac{d}{dx}(\ln(x)) = \frac{1}{x}\).
+    For the second expression, we can derive the rule.
+    \begin{align*}
+      y &= a^{f(x)}\\
+      \ln(y) &= f(x)\ln(a)\\
+      \frac{y'}{y} &= f'(x)\ln(a)\\
+      y' &= yf'(x)\ln(a)\\
+      y' &= a^{f(x)}f'(x)\ln(a)
+    \end{align*}
+    Thus, our second derivative is \(\frac{d}{dx}(10^x) = 10^x\ln(10)\).
+  \item
+    \(x + x^3 + \sin(x)\cos(x) + \sin(x)\)
+    \par\smallskip
+    This is should be a trivial exercise after doing the previous derivatives.
+    \[
+    \frac{d}{dx}f(x) = 1 + 3x^2 + \cos^2(x) - \sin^2(x) + \cos(x)
+    \]
+  \item
+    \(x^5 + \cos(x)e^x + \sin\big(\frac{x^2}{3}\big)\)
+    \par\smallskip
+    Here the derivative is
+    \[
+    \frac{d}{dx}f(x) = 5x^4 + e^x\cos(x) - e^x\sin(x) +
+    \frac{2x}{3}\cos\bigg(\frac{x^2}{3}\bigg).
+    \]
+  \item
+    \(x^{1/2} + x^2\sin^2(x)\)
+    \par\smallskip
+    The final derivative is
+    \[
+    \frac{d}{dx}f(x) = \frac{1}{2\sqrt{x}} + 2x\sin^2(x) + 2x^2\sin(x)\cos(x).
+    \]
+  \end{enumerate}
+\item
+  What is an integral?
+  How is it used?
+  What is the difference between a definite and an indefinite integral?
+  \par\smallskip
+  An integral is an anti-derivative.
+  For simplicity, one can think of it as the inverse of a derivative.
+  Integrals are primarily used to find areas, volumes, and surfaces.
+  A definite integral has bounds of integration which finds the constant of
+  integration whereas indefinite integrals have no bounds.
+  Since there are no bounds for the indefinite integrals, we must always
+  remember to put \(+ C\) for the constant of integration.
+\item
+  What is a derivative?
+  How is it used?
+  What is a differential?
+  What is the significance of the first and second derivatives?
+  \par\smallskip
+  By definition, a derivative is
+  \[
+  \lim_{\Delta x\to 0}\frac{f(x + \Delta x) - f(x)}{\Delta x}.
+  \]
+  In other words, the derivative is slope of the tangent line or we can say the
+  instantaneous rate of change of the function.
+  Derivatives can be used to find velocity if we differentiate position and
+  acceleration when we differentiate velocity.
+  A differential is an infinitesimal width of distance.
+  The first derivative of a function identifies critical points that identify
+  maximum and minimums.
+  The second derivative of a function identifies critical points that identify
+  inflection points which is where concavity changes.
+\item
+  Prove that the derivative of \(x^2\) is \(2x\).
+  \par\smallskip
+  To prove \(2x\) is the derivative of \(x^2\), we need to use the definition.
+  \begin{align*}
+    \lim_{\Delta x\to 0}\frac{(x + \Delta x)^2 - x^2}{\Delta x}
+    &= \lim_{\Delta x\to 0}\frac{2(\Delta x)x + (\Delta x)^2}{\Delta x}\\
+    &= \lim_{\Delta x\to 0}2x + \Delta x\\
+    & = 2x
+  \end{align*}
+\item
+  What is the \(\lim\limits_{x\to 0}\frac{\sin(x)}{x}\)?
+  \par\smallskip
+  When we take the limit as shown, we obtain \(\frac{0}{0}\) which is an
+  indeterminant form.
+  A technique we can use for indeterminate forms is L'H{\^o}pital's rule.
+  \begin{align*}
+    \lim_{x\to 0}\frac{\sin(x)}{x}
+    &= \lim_{x\to 0}\frac{\frac{d}{dx}\sin(x)}{\frac{d}{dx}x}\\
+    &= \lim_{x\to 0}\cos(x)\\
+    &= 1
+  \end{align*}
+\item
+  Be able to integrate or differentiate by using parts, chain rule, or quotient
+  rule.
+  \par\smallskip
+  All techniques we used in previous problems.
+\item
+  Draw the following curves.
+  Plot any max, min, and points of inflection.
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    \(f(x) = e^{-x^2}\)
+    \par\smallskip
+    To find a maximum or minimum, we need to set \(f'(x) = 0\).
+    \[
+    f'(x) = -2xe^{-x^2} = 0
+    \]
+    Since the exponential is never zero, we have \(-2x = 0\) or \(x = 0\).
+    By testing points to the left and right of zero, we can determine what is
+    occurring at \(x = 0\).
+    \begin{align*}
+      f'(1) &< 0\\
+      f'(-1) &> 0
+    \end{align*}
+    Since \(f'(-1) > 0\), we know that the slope of the tangent line is positive
+    to the right of zero, and since \(f'(1) < 0\), we know the slope is negative
+    to the left of zero.
+    That is, we have a slope that raises and then falls.
+    Thus, we have a maximum at \(x = 0\).
+    For inflection points, we need to set \(f''(x) = 0\).
+    \[
+    f''(x) = 2e^{-x^2}(2x^2 - 1)
+    \]
+    We then have \(2x^2 - 1 = 0\) so \(x = \pm\frac{1}{\sqrt{2}}\) as our
+    inflection points.
+    \begin{figure}[H]
+      \centering
+      \includestandalone[mode = image, height = 1.75in]{NUPOCmath27a}
+      \caption{The plot of \(f(x) = e^{-x^2}\) from \(x\in[-3, 3]\).}
+    \end{figure}
+  \item
+    \(f(x) = a\sin(x)\) for \(x\in[0, 2\pi]\)
+    \par\smallskip
+    Again, we need to find \(f'(x) = 0\) and \(f''(x) = 0\).
+    \[
+    f'(x) = a\cos(x) = 0
+    \]
+    So \(x = \frac{\pi}{2} + \pi k\) where \(k\in\mathbb{Z}\).
+    Since we are only dealing \(x\in[0, 2\pi]\), \(k = 0\) and \(1\).
+    therefore, \(x = \frac{\pi}{2}\) and \(\frac{3\pi}{2}\).
+    The question remains now are these x points maxima or minima?
+    Let's test a point to the left and right of both critical values to find out.
+    \begin{align*}
+      f'\big(\frac{\pi}{4}\big) &= +\\
+      f'\big(\frac{3\pi}{4}\big) &= -\\
+      f'\big(\frac{5\pi}{4}\big) &= +
+    \end{align*}
+    Therefore, at \(x = \frac{\pi}{2}\), we have a maximum, and at
+    \(x = \frac{\pi}{3}\), we have a minimum.
+    Next, we need to determine if we have any inflection points and if so
+    where.
+    \[
+    f''(x) = -a\sin(x) = 0
+    \]
+    We have zeros when \(x = 0\), \(\pi\), and \(2\pi\).
+    Since \(x = 0\) and \(2\pi\) are the endpoints, they can't be points of
+    inflection.
+    Thus, our only point of inflection occurs at \(x = \pi\).
+    \begin{figure}[H]
+      \centering
+      \includestandalone[mode = image, height = 2.25in]{NUPOCmath27b}
+      \caption{The plot of \(f(x) = a\sin(x)\) for different values of \(a\).}
+    \end{figure}
+  \item
+    \(f(x) = e^{\pi/2}\)
+    \par\smallskip
+    Since the first and second derivatives are a constant, zero, we have no
+    maxima, minima, or inflection points.
+    \begin{figure}[H]
+      \centering
+      \includestandalone[mode = image, width = 3in]{NUPOCmath27c}
+      \caption{The plot of \(f(x) = e^{\frac{\pi}{2}}\) which is a horizontal
+        line.}
+    \end{figure}
+  \item
+    \(f(x) = 3x^2 - 17x - 10\)
+    \par\smallskip
+    For the first derivative, we have
+    \[
+    f'(x) = 6x - 17 = 0.
+    \]
+    Our only critical point is then \(x = \frac{17}{6}\).
+    \begin{align*}
+      f'(0) &= -\\
+      f'(3) &= +
+    \end{align*}
+    Therefore, \(x = \frac{17}{6}\) is a minimum.
+    Since the second derivative is a constant, we have no inflection points.
+    \begin{figure}[H]
+      \centering
+      \includestandalone[mode = image, width = 3in]{NUPOCmath27d}
+      \caption{The plot of \(f(x) = 3x^2 - 17x -10\).}
+    \end{figure}
+  \item
+    \(f(x) = x^3 - x^2\)
+    \par\smallskip
+    In this case, we have
+    \begin{align*}
+      f'(x) &= 3x^2 - 2x\\
+      f''(x) &= 6x - 2
+    \end{align*}
+    The critical points for the first derivative are \(x = 0\) and
+    \(\frac{2}{3}\).
+    \begin{align*}
+      f'(-1) &= +\\
+      f'\big(\frac{1}{2}\big) &= -\\
+      f'(1) &= +
+    \end{align*}
+    Therefore, \(x = 0\) is a maximum and \(x = \frac{2}{3}\) is a minimum.
+    A change in concavity occurs at \(x = \frac{1}{3}\).
+    \begin{figure}[H]
+      \centering
+      \includestandalone[mode = image, width = 3in]{NUPOCmath27e}
+      \caption{The plot of \(f(x) = x^3 - x^2\).}
+    \end{figure}
+  \item
+    \(f(x) = x^2e^{-x^2}\)
+    \par\smallskip
+    For this equation, our first and second derivatives are
+    \begin{align*}
+      f'(x) &= 2xe^{-x^2}(1 - x^2)\\
+      f''(x) &= 2e^{-x^2}(2x^4 - 5x^2 + 1)
+    \end{align*}
+    Then the critical points are \(x = 0\) and \(\pm 1\).
+    \begin{align*}
+      f'(-2) &= +\\
+      f'\big(\frac{-1}{2}\big) &= -\\
+      f'\big(\frac{1}{2}\big) &= +\\
+      f'(2) &= -
+    \end{align*}
+    We have maxima at \(x = \pm 1\) and a minimum at \(x = 0\).
+    For our inflection points, we need to solve the quartic polynomial
+    \[
+    2x^4 - 5x^2 + 1 = 0.
+    \]
+    Let \(y = x^2\).
+    Then \(2y^2 - 5y + 1 = 0\).
+    By the quadratic equation,
+    \[
+    y = \frac{5\pm\sqrt{17}}{4}.
+    \]
+    Since \(y = x^2\), we have that our inflection points are at
+    \[
+    x = \pm\frac{\sqrt{5\pm\sqrt{17}}}{2}.
+    \]
+    \vspace*{-1cm}
+    \begin{figure}[H]
+      \centering
+      \includestandalone[mode = image, width = 5in]{NUPOCmath27f}
+      \caption{The plot of \(f(x) = x^2e^{-x^2}\).}
+    \end{figure}
+  \end{enumerate}
+\item
+  Analyze the curve \(y = 1 + e^{-x}\) by finding the first two derivatives,
+  maxima, minima, and inflection points.
+  \par\smallskip
+  The first derivatives for \(y\) are
+  \begin{align*}
+    y' &= -e^{-x}\\
+    y'' &= e^{-x}
+  \end{align*}
+  Since \(e^{\pm x} > 0\), we have no maximums (minimums) and inflection points.
+  Additionally, as \(x\to\infty\), \(y\to 1\).
+  Therefore, we have a horizontal asymptote at \(y = 1\).
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, height = 2in]{NUPOCmath28}
+    \caption{The plot of \(y = 1 + e^{-x}\).}
+  \end{figure}
+\item
+  Find the max or min of a parabola and determine if it is a max or min.
+  \par\smallskip
+  The most general parabola is \(f(x) = ax^2 + bx + c\).
+  The first derivative is then
+  \[
+  f'(x) = 2ax + b.
+  \]
+  A maximum (minimum) will occur at \(x = \frac{-b}{2a}\).
+  We have a few cases to consider in order to determine if we have a maximum
+  (minimum).
+  \begin{enumerate}[label = {Case \arabic*:}]
+  \item
+    Both \(a\), \(b > 0\).
+    \par\smallskip
+    In this case, \(x_c\) (x critical) is negative.
+    \begin{align*}
+      f'\big(\frac{-b}{a}\big) &= -\\
+      f'(0) &= +
+    \end{align*}
+    Therefore, \(x = \frac{-b}{2a}\) is a minimum.
+  \item
+    \(a > 0\) and \(b < 0\).
+    \par\smallskip
+    In this case \(x_c\), is positive.
+    \begin{align*}
+      f'\big(\frac{-b}{a}\big) &= +\\
+      f'(0) &= - 
+    \end{align*}
+    Therefore, \(x = \frac{-b}{2a}\) is a minimum.
+  \item
+    \(a < 0\) and \(b > 0\).
+    \par\smallskip
+    In this case \(x_c\), is positive.
+    \begin{align*}
+      f'\big(\frac{-b}{a}\big) &= -\\
+      f'(0) &= + 
+    \end{align*}
+    Therefore, \(x = \frac{-b}{2a}\) is a maximum.
+  \item
+    Both \(a\), \(b < 0\).
+    \par\smallskip
+    In this case \(x_c\), is negative.
+    \begin{align*}
+      f'\big(\frac{b}{a}\big) &= +\\
+      f'(0) &= - 
+    \end{align*}
+    Therefore, \(x = \frac{-b}{2a}\) is a maximum.
+  \end{enumerate}
+\item
+  Using calculus, derive the formula for the exposed surface area of a ball
+  floating in water.
+  \par\smallskip
+  First, let's consider the geometric formula of surface area for a sphere
+  (ball).
+  The surface area of a sphere is circumference times arc length,
+  \[
+  SA = 2\pi r\ell.
+  \]
+  For an arbitrary sphere, we need to determine what the radius and arc length
+  are.
+  Let' start with the arc length, \(\ell\).
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 2in]{NUPOCmath30}
+    \caption{An arc on interval \(x\in[a, b]\) with \(n = 4\).}
+  \end{figure}
+  Let the end points of the estimated arc be labelled \(x_i\) where
+  \(i = 1\), \(2\), \(3\), \(4\), and \(5\).
+  Then the distance of any line segment is
+  \(d_k = \sqrt{(x_{i + 1} - x_i)^2 + (f(x_{i + 1}) - f(x_i))^2}\); therefore,
+  the arc length, \(\ell\), is
+  \[
+  \sum_{k = 1}^Nd_k. \eqnumtag\label{arcl}
+  \]
+  By the Mean Value Theorem, we have that
+  \[
+  f'(c) = \frac{f(b) - f(a)}{b - a}
+  \]
+  on where \(f\) is continuous on the closed interval \([a, b]\),
+  differentiable on the open interval \((a, b)\), and \(a < b\).
+  Let \(a = x_i\) and \(b = x_{i + 1}\).
+  Then
+  \[
+  f'(x_k) = \frac{f(x_{i + 1}) - f(x_i)}{x_{i + 1} - x_i}\Rightarrow
+  f'(x_k)(x_{i + 1} - x_i) = f(x_{i + 1}) - f(x_i)
+  \]
+  Let \(\Delta x = x_{i + 1} - x_i\).
+  Then we can write \cref{arcl} as
+  \[
+  \sum_{k = 1}^N\sqrt{(\Delta x)^2\big(1 + (f'(x_k))^2\big)} =
+  \sum_{k = 1}^N\Delta x\sqrt{\big(1 + (f'(x_k))^2\big)}.
+  \]
+  As \(N\to\infty\), \(\Delta x\ll 1\) and we can write the summation as the
+  integral
+  \[
+  \lim_{N\to\infty}\sum_{k = 1}^N\Delta x\sqrt{\big(1 + (f'(x_k))^2\big)} =
+  \int_a^b\Delta x\sqrt{\big(1 + (f'(x))^2\big)} \ dx.
+  \]
+  Now, we have that the radius is
+  \[
+  r = \frac{f(x_i) + f(x_{i + 1})}{2},
+  \]
+  but since \(\Delta x\ll 1\), \(f(x_i)\approx f(x_{i + 1})\).
+  Thus, \(r = f(x)\).
+  Finally, we have that the total surface area of a sphere is
+  \[
+  SA = 2\pi\lim_{N\to\infty}f(x)\sum_{k = 1}^N\Delta x
+  \sqrt{1 + \big(f'(x_k)\big)^2} 
+  = 2\pi\int_a^bf(x)\sqrt{1 + \big(f'(x)\big)^2} \ dx.
+  \]
+  Let's find the total sphere area of an arbitrary sphere. 
+  Suppose the sphere as radius, \(r = R\).
+  Then in the xy plane the equation for the circle is \(x^2 + y^2 = R^2\) or
+  \(y = f(x) = \pm\sqrt{R^2 - x^2}\).
+  \begin{align*}
+    f'(x) &= \frac{-x}{\sqrt{R^2 - x^2}}\\
+    \big(f'(x)\big)^2 &= \frac{x^2}{R^2 - x^2}\\
+    \sqrt{1 + \big(f'(x)\big)^2} &= \frac{R}{\sqrt{R^2 - x^2}}\\
+    f(x)\sqrt{1 + \big(f'(x)\big)^2} &= R
+  \end{align*}
+  After grinding through the above algebra, we have a much easier integral to
+  solve.
+  \[
+  SA = 2\pi R\int_{-R}^Rdx = 4\pi R^2
+  \]
+  Now the only question remains is how to find the total exposed surface area
+  of a ball floating in water.
+  For this, we will assume the ball is in placid water.
+  That is, the amount of surface area exposed doesn't change.
+  Let \(h\) be the height of the water line, and let \(y = 0\) correspond to
+  the mid point on the ball.
+  We have to two cases to consider, because when \(h = 0\), the surface area
+  exposed is \(2\pi R^2\).
+  \begin{enumerate}[label = {Case \arabic*:}]
+  \item
+    When \(h > 0\).
+    \par\smallskip
+    Since \(h\) corresponds to \(y\), we need to determine the x associated
+    with this \(y\) for the bounds of integration.
+    \[
+    h = \pm\sqrt{R^2 - x^2}\Rightarrow x = \pm\sqrt{R^2 - h^2}
+    \]
+    Then the exposed surface area is
+    \begin{align*}
+      SA &= 2\pi R\int_{-\sqrt{R^2 - h^2}}^{\sqrt{R^2 - h^2}} \ dx\\
+         &= 4\pi R\sqrt{R^2 - h^2}\eqnumtag\label{saexp}
+    \end{align*}
+  \item
+    When \(h < 0\).
+    \par\smallskip
+    For this case, it will be \(2\pi R^2\) plus \cref{saexp}.
+  \end{enumerate}
+\item
+  Solve the following differential equations:
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    \(y'' + 6y' + 9 = 5\)
+    \par\smallskip
+    To solve this differential equation, let's first combine the constants.
+    \[
+    y'' + 6y' + 4 = 0
+    \]
+    We can then treat this differential equation as quadratic polynomial.
+    That is, \(m^2 + 6m + 4 = 0\).
+    Then \(y(x) = Ae^{m_1x} + Be^{m_sx}\) so all we need to do now is find the
+    zeros of the polynomial.
+    \begin{gather*}
+      m = -3\pm\sqrt{5}\\
+      y(x) = Ae^{x(\sqrt{5} - 3)} + Be^{-x(3 + \sqrt{5})}
+    \end{gather*}
+  \item
+    \(\frac{dN}{dt} = -2N\)
+    \par\smallskip
+    For this ODE, we can use separation of variables.
+    \begin{align*}
+      \int\frac{dN}{N} &= -2\int dt\\
+      \ln(N) &= -2t + C\\
+      N(t) &= Ce^{-2t}
+    \end{align*}
+  \item
+    \(y' = xy^3\) where \(y(0) = 1\)
+    \par\smallskip
+    Again we can use separation of variables.
+    \begin{align*}
+      \int\frac{dy}{y^3} &= \int x \ dx\\
+      \frac{-1}{2y^2} &= \frac{x^2}{2} + C\\
+      y(x) &= \frac{1}{\sqrt{C - x^2}}
+    \end{align*}
+    Let's now use the initial condition to find the constant of integration.
+    \[
+    y(0) = \frac{1}{C} = 1
+    \]
+    Therefore, \(C = 1\) and the exact solution is
+    \[
+    y(x) = \frac{1}{\sqrt{1 - x^2}}.
+    \]
+  \end{enumerate}
+\item
+  For the following curve, plot the first and second derivatives.
+  \begin{figure}[H]
+    \centering
+    \subcaptionbox{Problem statement plot}{
+      \includestandalone[mode = image, width = 3in]{NUPOCmath32}}
+    \quad
+    \subcaptionbox{Solution plot}{
+      \includestandalone[mode = image, height = 2.25in]{NUPOCmath32sol}}
+    \caption{Plots for the problem and solution.}
+  \end{figure}
+\item
+  Given \(80\) feet of fencing, what is the maximum area that you can enclose
+  along a wall?
+  \par\smallskip
+  Here we are given an optimization problem.
+  Let's construct a diagram of what we know.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCmath33}
+    \caption{A rectangular area enclosed along a wall.}
+    \label{NUPOCmath33}
+  \end{figure}
+  We can use calculus or algebra to solve to solve this problem.
+  \begin{enumerate}[label = {Case \arabic*:}]
+  \item
+    Algebra only.
+    \par\smallskip
+    The perimeter of our fenced in area is \(P = 2y + x = 80\) and the area
+    is \(A = xy\).
+    Therefore, we can write \(x = 80 - 2y\) and \(A = 80y - 2y^2\).
+    \[
+    2y(40 - y) = 0\Rightarrow y = 0, \ 40
+    \]
+    We have that y intercepts of the parabola are \(y = 0\) and \(40\).
+    Since this parabola opens down, we have a maximum, and this maximum is
+    when \(y\in(0, 40)\).
+    Again, since we are dealing with a parabola, we know it is symmetric about
+    line that bisects it at the vertex (maximum in our case).
+    Therefore, \(y = 20\) and \(x = 40\) so the maximum area is
+    \(A = 20\cdot 40 = 800\) square feet.
+  \item
+    Calculus.
+    \par\smallskip
+    With calculus, we will have the same equation for area, \(A = 80y - 2y^2\).
+    \[
+    \frac{dA}{dy} = 80 - 4y
+    \]
+    So the critical value is \(y = 20\) which is a maximum since the parabola
+    opens down.
+    Thus, \(x = 40\) and the maximum area is \(A = 800\) square feet.
+  \end{enumerate}
+\item
+  Given the figure below, determine the value of \(x\) so when the corners are
+  removed and flaps folded up, the five-sided box formed will have the maximum
+  volume.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCmath34}
+    \caption{A rectanlge with length, \(L\) and width, \(W\).}
+  \end{figure}
+  What we have here is an optimization problem.
+  Let \(\ell = L - 2x\) and \(w = W - 2x\).
+  Then \(V = \ell w h\).
+  \begin{align*}
+    V(x) &= (L - 2x)(W - 2x)x\\
+         &= 4x^3 - 2x^2(L + W) + LWx\eqnumtag\label{vbox}\\
+    V' &= 12x^2 - 4x(L + W) + LW
+  \end{align*}
+  We need to find the x critical value the will maximize the volume.
+  \[
+  x = \frac{L + W\pm\sqrt{L^2 - LW + W^2}}{6}
+  \]
+  Let \(x_+ = \frac{L + W + \sqrt{L^2 - LW + W^2}}{6}\) and
+  \(x_- = \frac{L + W - \sqrt{L^2 - LW + W^2}}{6}\).
+  Since \cref{vbox} is a cubic with the leading power positive, \(4x^3\), we
+  know from a sketch of cubics of this form that the maximum occurs when
+  \(x\in(0, x_-)\) and a minimum is when \(x\in(x_-, x_+)\).
+  Thus, the the volume of the box is maximized when \(x = x_-\).
+\item
+  Two runners start at a distance of \(10\) miles from each other.
+  They run towards each other at a constant velocity of \(5\) mph.
+  A fly takes off from runner one's nose at \(t = 0\).
+  The fly has a constant velocity of \(20\) mph and flies between the runners.
+  Find the total distance that the fly has traveled when the runners collide.
+  \par\smallskip
+  We will assume the runner's velocity behaves much like the Dirac delta
+  function.
+  That is, at the moment the time starts to roll from \(t = 0\) to \(t > 0\),
+  the runners are moving at \(v_r = 5\) mph.
+  Therefore, this problem has to potential solutions depending on your view.
+  We will consider both cases.
+  \begin{enumerate}[label = {Case \arabic*:}]
+  \item
+    At \(t = 0\), the runner is at \(5\) mph.
+    \par\smallskip
+    Since the runner is at \(5\) mph when the fly takes off, the fly is has a
+    velocity of \(v_f = 25\) mph.
+    The runners will collide in \(1\) hour since each runner will cover 5 miles
+    in that time.
+    Thus, the fly will have travelled \(25\) miles. 
+  \item
+    At \(t = 0\), the runner is at \(0\) mph.
+    \par\smallskip
+    In this scenario, the fly will only have a velocity of \(v_f = 20\) mph, so
+    in \(1\) hour, the fly will have travelled \(20\) miles.
+  \end{enumerate}
+\item
+  What is a Laplace transform, a Fourier transform, or a Taylor series?
+  How are each used?
+  \par\smallskip
+  The Laplace transform is defined as
+  \[
+  \mathcal{L}\{f(t)\} = \int_0^{\infty}f(t)e^{-st} \ dt
+  \]
+  where \(s = \sigma + i\omega\).
+  The Fourier transform is defined as
+  \[
+  \mathcal{F}\{f(x)\} = \int_{-\infty}^{\infty}f(x)e^{-2\pi ix\xi} \ d\xi.
+  \]
+  A Taylor series is when you represent a function as an infinite series around
+  some point say, \(a\).
+  For example, let \(f\) be an arbitrary continuous function with continuous
+  derivatives; in other words, let \(f\) belong to \(C^{\infty}\).
+  Then the Taylor series of \(f\) is
+  \[
+  \sum_{n = 1}^{\infty}\frac{f^{(n)}(a)}{n!}(x - a)^n
+  \]
+  where \(f^{(n)}\) is the nth derivative of \(f\).
+  Laplace transforms are used to solve ordinary differential equations and to
+  find transfer functions in control systems.
+  The transfer function is defined as the Laplace transform of the output
+  over the Laplace transform of the input with zero initial conditions.
+  The Fourier transfer is used to solve partial differential equations on
+  infinite domains.
+  Taylor series are used in perturbations.
+  We can expand the Taylor series of the function in question and take only
+  the linear terms, quadratic, or etc. depending on the desired level of
+  accuracy.
+\item
+  When do you use L'H{\^o}pital's rule?
+  \par\smallskip
+  L'H{\^o}pital's rule is used in solving limits that produces indeterminate
+  forms.
+  The indeterminate forms we will usually see are \(0/0\), \(\infty/\infty\),
+  \(0\cdot\infty\), \(\infty - \infty\), \(0^0\), \(1^{\infty}\), and
+  \(\infty^0\).
+\item
+  What is the probability of throwing one \(7\) with two dice?
+  \par\smallskip
+  The probability of rolling a \(7\) with two dice is simply the number of
+  ways a \(7\) can be rolled divided by the number of ways two dice can be
+  rolled.
+  The number of ways to roll a seven is \(6\) and the total possible rolls is
+  \(36\).
+  Thus, the probability of rolling a \(7\) with two dice is \(\frac{1}{6}\).
+\item
+  If the population doubles in two years, how long does it take to triple?
+  \par\smallskip
+  We will assume that the change in population is proportional to a constant
+  multiple of the population.
+  \[
+  \frac{dP}{dt} \propto kP\Rightarrow \int\frac{dP}{P} = k\int dt
+  \]
+  Then \(P(t) = Ce^{kt}\).
+  We know that \(P(0) = P = C\) and \(P(2) = 2P\).
+  \[
+  P(t) = Pe^{kt}
+  \]
+  We now need to find \(k\) so we can determine the time that produces \(3P\).
+  \begin{align*}
+    2P &= Pe^{2k}\\
+    2  &= e^{2k}\\
+    k  &= \frac{1}{2}\ln(2)
+  \end{align*}
+  Let's find the appropriate time now.
+  \begin{align*}
+    3P      &= P\exp\Big(\frac{1}{2}\ln(2)t\Big)\\
+    \ln(3)  &= \frac{1}{2}\ln(2)t\\
+    t       &= 2\frac{ln(3)}{\ln(2)}\\
+            &\approx 3.16993
+  \end{align*}
+  It will take approximately \(3.16993\) years for the population to triple.
+\item
+  Find \(f(x)\) which best describes the following graph where \(A\) represents
+  area.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCmath40}
+    \caption{The plot of \(f(x)\).}
+  \end{figure}
+  Let \((x_1, y_1)\) be the point in the northeast corner of the rectangle.
+  Since integral finds the area under the curve, we know that
+  \[
+  A = \int_0^{x_1}f(x) \ dx.
+  \]
+  Additionally, the area in the upper half is
+  \[
+  3A = \int_0^{x_1}(y_1 - f(x)) \ dx\Rightarrow 3A =
+  x_1y_1 - \int_0^{x_1}f(x) \ dx.
+  \]
+  Therefore, \(A = \frac{1}{4}x_1y_1\) and
+  \[
+  \int_0^{x_1}f(x) \ dx = \frac{x_1y_1}{4}.
+  \]
+\item
+  Use a first order differential equation to find the function to represent
+  current with respect to time and to find the time constant to the circuit.
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCmath41}
+    \caption{Electrical diagram}
+  \end{figure}
+  For \(t > 0\),
+  \[
+  V = iR + \frac{1}{C}\int i(t) \ dt\eqnumtag\label{rccirc}
+  \]
+  where \(i(t) = \frac{dq}{dt}\).
+  We can differeniate \cref{rccirc} to obatin
+  \[
+  0 = \dot{i}R + \frac{i}{C}.
+  \]
+  We can solve for current as a function of time now since
+  \(Rm + \frac{1}{C} = 0\) so \(i(t) = Ae^{\frac{-t}{RC}}\).
+  When \(t = 0\), \(i(0) = A = i_0\).
+  Thus, \(i(t) = i_0e^{\frac{-t}{RC}}\).
+\item
+  Show how to solve a differential equation with matrices.
+  \par\smallskip
+  Let's consider the matrix differential equation
+  \(\dot{\mathbf{x}} = \mathbf{A}\mathbf{x}\) where \(\mathbf{A}\) is a square
+  matrix.
+  Let's assume that \(\mathbf{A}\) is diagonalizable.
+  \[
+  \mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}
+  \]
+  Then the solution to the matrix differential equation is
+  \[
+  \mathbf{x} = \sum_{i = 1}^Nc_ie^{\lambda_it}\mathbf{v_i}
+  \]
+  \(c_i\) are constants, \(\lambda_i\) is the ith eigenvalue of \(\mathbf{A}\),
+  and \(\mathbf{v}_i\) is the ith eigenvector.
+\item
+  Find the sum of \(\sum\limits_{n = 1}^{100}n\).
+  \par\smallskip
+  Thanks to Gauss, we know that sums of this form can be found using the formula
+  \[
+  \sum\limits_{n = 1}^Nn = \frac{n}{2}(n + 1).
+  \]
+  Thus, \(\sum\limits_{n = 1}^{100}n = 5050\).
+\item
+  Given the figure below with uniform mass, what is the y coordinate of the
+  center of gravity?
+  \begin{figure}[H]
+    \centering
+    \includestandalone[mode = image, width = 3in]{NUPOCmath44}
+    \caption{The height of both blocks are \(a\) and the indentation of the
+      smaller block is \(a\).}
+  \end{figure}
+  Suppose the density is \(\rho\).
+  Then \(m = V\rho\) where \(V\) is the volume.
+  The volume of the bottom block is \(a\), and the volume of the top block is
+  \(a(1 - a)\).
+  Then \(m_b = a\rho\), \(m_t = a\rho(1 - a)\), and
+  \(M = m_b + m_t = a\rho(2 - a)\).
+  Now let's assume the x axis runs along the front and y along the side.
+  Then the center for both the top and bottom blocks are \(x = \frac{1}{2}\).
+  \[
+  \bar{y} = \frac{M_x}{M} = \frac{1}{a\rho(2 - a)}
+  \]
+  For practice, let's find the x coordinate for the center of gravity.
+  The center for the bottom block is \(y_b = \frac{1}{2}\) and the top is
+  \(y_t = \frac{1 - a}{2}\).
+  \[
+  \bar{x} = \frac{M_y}{M} = \frac{1 + 1 - a}{2a\rho(2 - a)} =
+  \frac{1}{2a\rho}
+  \]
+\item
+  Describe how to classify differential equations.
+  \par\smallskip
+  Differential equations can be classified into three main
+  categories--ordinary differential equations (ODE), partial differential
+  equations (PDE), and differential algebraic equations (DAE).
+  Additionally, ODE and PDE can be classified as linear, nonlinear, homogeneous,
+  and nonhomogeneous.
+  PDE can then be classified as elliptic, parabolic, and hyperbolic.
+\item
+  Solve \(\ddot{x} + 5\dot{x} + 6x = e^{-t}\).
+  \par\smallskip
+  First, let's determine the complementary solution; that is, the solution to
+  the homogeneous differential equation.
+  \[
+  m^2 + 5m + 6 = 0\Rightarrow (m + 3)(m + 2) = 0
+  \]
+  Therefore, \(x_c = Ae^{-3x} + Be^{-2x}\).
+  For the particular solution, let \(y_p = Ce^{-t}\).
+  Then \(\dot{x}_p' = -Ce^{-t}\) and \(\ddot{x}_p' = Ce^{-t}\).
+  \begin{align*}
+    C(e^{-t} - 5e^{-t} + 6e^{-t}) &= e^{-t}\\
+    2Ce^{-t} &= e^{-t}
+  \end{align*}
+  So \(C = \frac{1}{2}\) and \(x_p = \frac{1}{2}e^{-t}\).
+  \[
+  x(t) = Ae^{-3t} + Be^{-2t} + \frac{1}{2}e^{-t}
+  \]
+\item
+  What is the Laplace transform of \(f(t) = t\)?
+  \par\smallskip
+  Let's apply the definition.
+  \begin{align*}
+    \mathcal{L}\{t\} &= \int_0^{\infty}te^{-st} \ dt\\
+    \intertext{We will have to use integration by parts where \(u = t\),
+    \(du = dt\), \(dv = e^{-st}\), and \(v = \frac{-1}{s}e^{-st}\).}
+                     &= \frac{-t}{s}e^{-st}\Big|_0^{\infty} +
+                        \frac{1}{s}\int_0^{\infty}e^{-st} \ dt\\
+                     &= \frac{-1}{s^2}e^{-st}\Big|_0^{\infty}\\
+                     &= \frac{1}{s^2}
+  \end{align*}
+\item
+  Solve \(y'' + 4y' + 3y = \sin(x)\).
+  \par\smallskip
+  Again, we will start by finding \(y_c\).
+  \[
+  m^2 + 4m + 3 = 0\Rightarrow (m + 3)(m + 1) = 0
+  \]
+  So \(y_c = Ae^{-3x} + Be^{-x}\).
+  Let \(y_p = C_1\sin(x) + C_2\cos(x)\).
+  Then \(y_p' = C_1\cos(x) - C_2\sin(x)\) and
+  \(y_p'' = -C_1\sin(x) - C_2\cos(x)\).
+  \begin{align*}
+    \sin(x)(3C_1 - 4C_2 - C_1) + cos(x)(3C_2 + 4C_1 - C_2) = \sin(x)\\
+    \sin(x)(2C_1 - 4C_2) + cos(x)(2C_2 + 4C_1) = \sin(x)
+  \end{align*}
+  We can use linear algebra to find the coefficients \(C_1\) and \(C_2\).
+  \[
+  \begin{bmatrix}
+    2 & -4 & 1\\
+    4 & 2 & 0
+  \end{bmatrix}\Rightarrow
+  \begin{bmatrix}
+    1 & -2 & \frac{1}{2}\\
+    0 & 1 & \frac{-1}{5}
+  \end{bmatrix}
+  \]
+  Therefore, \(C_2 = \frac{-1}{5}\) and \(C_1 = \frac{1}{10}\) so
+  \(y_p = \frac{1}{10}\sin(x) - \frac{1}{5}\cos(x)\).
+  \[
+  y(t) = Ae^{-3x} + Be^{-x} + \frac{1}{10}\sin(x) - \frac{1}{5}\cos(x)
+  \]
+\item
+  Solve \(\dot{x} = \frac{x}{k}\).
+  \par\smallskip
+  We can use separation of variables here.
+  \[
+  \int\frac{dx}{x} = \frac{1}{k}\int dt\Rightarrow \ln(x) = \frac{t}{k} + C
+  \]
+  Therefore, the solution is \(x(t) = Ce^{\frac{t}{k}}\).
+\item
+  Solve the general and specific homogeneous equation with derivatives:
+  \[
+  \frac{dy}{dx} + Ky = 10
+  \]
+  The homogeneous equation is \(\frac{dy}{dx} = -Ky\).
+  We can use separation of variables here as well.
+  \[
+  \int\frac{dy}{y} = -K\int dt\Rightarrow y(t) = Ce^{-Kt}
+  \]
+  Let \(y_p = A\).
+  Then \(y_p' = 0\).
+  We have that \(KA = 10\Rightarrow A = \frac{10}{K}\).
+  \[
+  y(x) = \frac{10}{K} + Ce^{-Kt}
+  \]
+\item
+  Explain how to solve the following differential equation \(A'' + A' + A = 0\).
+  \par\smallskip
+  The roots of the polynomial form the constants, \(\alpha\), to the general
+  solution,
+  \[
+  A(x) = C_1e^{\alpha_1t} + C_2e^{\alpha_2t}.
+  \]
+\item
+  Solve \(y - 3y' = 0\) with \(y(0) = 3\).
+  \par\smallskip
+  We have \(-3m + 1 = 0\) so \(y(x) = Ae^{\frac{1}{3}x}\).
+  Using the initial condition, \(y(0) = A = 3\).
+  \[
+  y(x) = 3e^{\frac{1}{3}x}
+  \]
+\end{enumerate}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

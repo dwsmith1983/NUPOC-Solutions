@@ -1,0 +1,45 @@
+\documentclass[tikz, convert = false]{standalone}%
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+% Ensure we are not overriding any existing macro
+\newcommand*{\DeltaAngle}{}
+\newcommand*{\CurrentStartAngle}{}
+\newcommand*{\CurrentEndAngle}{}
+\newcommand*{\SegmentedArc}[5][]{%
+  % #1 = draw options
+  % #2 = number of segments
+  % #3 = arc start angle
+  % #4 = arc end angle
+  % #5 = radius
+  \draw[thin, gray] (#3:#5) arc[radius = #5, start angle = #3, end angle = #4];
+  % 
+  \pgfmathsetmacro{\DeltaAngle}{(#4 - #3)/#2}%
+  \foreach \x in {1, ..., #2} {%
+    \pgfmathsetmacro{\CurrentStartAngle}{#3 + (\x - 1)*\DeltaAngle}%
+    \pgfmathsetmacro{\CurrentEndAngle}{\CurrentStartAngle + \DeltaAngle}%
+    \typeout{\string\CurrentStartAngle = \CurrentStartAngle,
+      \string\CurrentEndAngle = \CurrentEndAngle}%
+    \draw[#1] (\CurrentStartAngle: #5cm) -- (\CurrentEndAngle: #5cm);
+  }%
+}%
+\listfiles
+\begin{document}
+\begin{tikzpicture}
+  \SegmentedArc[thin, red]{4}{20}{100}{2}
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,61 @@
+\documentclass[tikz, convert = false]{standalone}%
+
+\usepackage[utf8]{inputenx}%  http://ctan.org/pkg/inputenx
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+\renewcommand{\rmdefault}{ppl}% rm
+\linespread{1.05}% Palatino needs more leading
+\usepackage[scaled]{helvet}% ss //  http://ctan.org/pkg/helvet
+\usepackage{courier}% tt // http://ctan.org/pkg/courier
+\usepackage{eulervm}  %  http://ctan.org/pkg/eulervm
+% a better implementation of the euler package (not in gwTeX)
+\normalfont%
+\usepackage[T1]{fontenc}%  http://ctan.org/pkg/fontenc
+\usepackage{textcomp}%  http://ctan.org/pkg/textcomp
+
+\usepackage{pgfplots}
+\pgfplotsset{compat = 1.10}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis lines = center,
+    xmin = -.5,
+    xmax = 9,
+    ymin = -4,
+    ymax = 6,
+    xlabel = {x},
+    ylabel = {y},
+    xtickmax = -100,
+    ytickmax = -100,
+    unit vector ratio = 1 1 1,
+    legend style = {
+      at = {(1, 0.2)},
+      anchor = east
+    }
+    ]
+    \addplot[blue, smooth] gnuplot[domain = .5:4.02, samples = 500]
+    {-(x - sqrt(5))^2 + 5};
+    \addplot[red, smooth] gnuplot[domain = .5:4.02, samples = 500]
+    {-2*x + 2*sqrt(5)};
+    \addplot[gray, smooth] gnuplot[domain = .5:4.02, samples = 500]
+    {-2};
+    
+    \addplot[blue, smooth] gnuplot[domain = 4.01:8, samples = 500]
+    {.2*((4 - sqrt(5))^2 - 1)*x + 8/5*(9*sqrt(5) - 20)};    
+    \addplot[red, smooth] gnuplot[domain = 4.01:8, samples = 500]
+    {8/5*(9*sqrt(5) - 20)};
+    \addplot[gray, smooth] gnuplot[domain = 4.01:8, samples = 500]
+    {0};
+    \legend{$f$, $f'$, $f''$}
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
